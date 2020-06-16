@@ -13,7 +13,7 @@ import OAuthSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey  : Any] = [:]) -> Bool {
-      if url.host == "oauth-callback" {
+      if url.host == Constants.URL.callbackHost {
         OAuthSwift.handle(url: url)
       }
       return true

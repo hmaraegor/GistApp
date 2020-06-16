@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let url = URLContexts.first?.url else {
                 return
             }
-            if url.host == "oauth-callback" {
+        if url.host == Constants.URL.callbackHost {
                 OAuthSwift.handle(url: url)
             }
     }
