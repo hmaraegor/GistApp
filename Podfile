@@ -8,5 +8,6 @@ target 'GistApp' do
   # Pods for GistApp
 
 pod 'OAuthSwift', '~> 2.0.0'
+pod 'Locksmith'
 
 end

@@ -12,10 +12,11 @@
 
 import UIKit
 import OAuthSwift
+import Locksmith
 
 class ViewController: UIViewController {
 
-    var oauthswift: OAuth2Swift?
+    private var oauthswift: OAuth2Swift?
     
     @IBAction func OAuthButtonTapped(_ sender: UIButton) {
         // create an instance and retain it
@@ -34,14 +35,32 @@ class ViewController: UIViewController {
         let state = generateState(withLength: 20)
         let _ = oauthswift.authorize(
         withCallbackURL: URL(string: "gistapp://oauth-callback/github")!, scope: "gist", state: state) { result in
+            
             switch result {
             case .success(let (credential, response, parameters)):
                 self.printResponse(credential, response, parameters)
+                self.saveTokenInKeychain(token: credential.oauthToken)
+                print("OAUTH TOKEN\n", self.loadTokenFromKeychain())
                 //self.showTokenAlert(name: "", credential: credential)
             case .failure(let error):
                 print(error.description)
             }
         }
+    }
+    
+    private func saveTokenInKeychain(token: String) {
+        guard token != "" else { return }
+        do {
+            try Locksmith.saveData(data: ["token" : token], forUserAccount: "MyAccount")
+        } catch {
+            print("Unable to save data")
+        }
+    }
+    
+    private func loadTokenFromKeychain() -> String {
+        let dictionary = Locksmith.loadDataForUserAccount(userAccount: "MyAccount")
+        guard let token = dictionary?["token"] as? String else { return "" }
+        return token
     }
     
     func printResponse(_ credential: OAuthSwiftCredential, _ response: OAuthSwiftResponse?, _ parameters: OAuthSwift.Parameters) {
