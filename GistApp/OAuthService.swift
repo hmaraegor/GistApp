@@ -33,18 +33,11 @@ class OAuthService {
             case .success(let (credential, response, parameters)):
                 var token = credential.oauthToken
                 completion(.success(token))
-                //printResponse(credential, response, parameters)
             case .failure(let error):
                 completion(.failure(error))
                 print(error.description)
             }
         }
-    }
-    
-    static func printResponse(_ credential: OAuthSwiftCredential, _ response: OAuthSwiftResponse?, _ parameters: OAuthSwift.Parameters) {
-        print("credential.oauthToken\n", credential.oauthToken)
-        print("response\n", response?.response as Any)
-        print("parameters\n", parameters)
     }
     
 }
