@@ -13,15 +13,15 @@ class StoredData {
     
     static var token: String? {
         get {
-            return StoredData().loadTokenFromKeychain()
+            return StoredData.loadTokenFromKeychain()
         }
         
         set {
-            StoredData().saveTokenInKeychain(token: newValue)
+            StoredData.saveTokenInKeychain(token: newValue)
         }
     }
     
-    private func saveTokenInKeychain(token: String?) {
+    private static func saveTokenInKeychain(token: String?) {
         guard let token = token else { return }
         do {
             try Locksmith.saveData(data: ["token" : token], forUserAccount: "MyAccount")
@@ -30,7 +30,7 @@ class StoredData {
         }
     }
     
-    private func loadTokenFromKeychain() -> String? {
+    private static func loadTokenFromKeychain() -> String? {
         let dictionary = Locksmith.loadDataForUserAccount(userAccount: "MyAccount")
         return dictionary?["token"] as? String
     }
