@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12115077249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12115076249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift */; };
 		128D1D4D2497E4F40066E58F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D4C2497E4F40066E58F /* AppDelegate.swift */; };
 		128D1D4F2497E4F40066E58F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D4E2497E4F40066E58F /* SceneDelegate.swift */; };
 		128D1D512497E4F40066E58F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D502497E4F40066E58F /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12115076249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2SwiftExtension.swift; sourceTree = "<group>"; };
 		128D1D492497E4F40066E58F /* GistApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GistApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		128D1D4C2497E4F40066E58F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		128D1D4E2497E4F40066E58F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12115075249A8E0000B9EFB0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				12115076249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		128D1D402497E4F40066E58F = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +79,7 @@
 		128D1D4B2497E4F40066E58F /* GistApp */ = {
 			isa = PBXGroup;
 			children = (
+				12115075249A8E0000B9EFB0 /* Extension */,
 				128D1D4C2497E4F40066E58F /* AppDelegate.swift */,
 				128D1D4E2497E4F40066E58F /* SceneDelegate.swift */,
 				128D1D60249953E10066E58F /* AppConstants.swift */,
@@ -219,6 +230,7 @@
 				128D1D4D2497E4F40066E58F /* AppDelegate.swift in Sources */,
 				128D1D632499611B0066E58F /* OAuthService.swift in Sources */,
 				128D1D4F2497E4F40066E58F /* SceneDelegate.swift in Sources */,
+				12115077249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift in Sources */,
 				128D1D65249967E50066E58F /* StoredData.swift in Sources */,
 				128D1D61249953E10066E58F /* AppConstants.swift in Sources */,
 			);

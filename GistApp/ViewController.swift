@@ -19,9 +19,9 @@ class ViewController: UIViewController {
     
     @IBAction func OAuthButtonTapped(_ sender: UIButton) {
         
-        let oauthswift = OAuthService.getOAuthObject
+        let oauthswift = OAuth2Swift.github
 
-        OAuthService.getToken(oauthObj: oauthswift) { result in
+        OAuthService().getToken(oauthObj: oauthswift) { result in
             switch result {
             case .success(let responseToken):
                 print()

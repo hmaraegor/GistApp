@@ -11,17 +11,7 @@ import OAuthSwift
 
 class OAuthService {
     
-    static var getOAuthObject: OAuth2Swift {
-        return OAuth2Swift(
-            consumerKey:    Constants.OAuth.consumerKey,
-            consumerSecret: Constants.OAuth.consumerSecret,
-            authorizeUrl:   Constants.OAuth.authorizeUrl,
-            accessTokenUrl: Constants.OAuth.accessTokenUrl,
-            responseType:   Constants.OAuth.responseType
-        )
-    }
-    
-    static func getToken(oauthObj: OAuth2Swift, completionHandler completion:
+    func getToken(oauthObj: OAuth2Swift, completionHandler completion:
     @escaping (Result<String, Error>) -> ()) {
         
         oauthObj.authorizeURLHandler = OAuthSwiftOpenURLExternally.sharedInstance
