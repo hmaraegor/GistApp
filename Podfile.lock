@@ -1,16 +1,20 @@
 PODS:
+  - Locksmith (4.0.0)
   - OAuthSwift (2.0.0)
 
 DEPENDENCIES:
+  - Locksmith
   - OAuthSwift (~> 2.0.0)
 
 SPEC REPOS:
   trunk:
+    - Locksmith
     - OAuthSwift
 
 SPEC CHECKSUMS:
+  Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   OAuthSwift: 6805456763cf1c7ae0c16765257ed430b7aacae7
 
-PODFILE CHECKSUM: 3a5c7f95053e669f2d59792b4950f7fbeee32910
+PODFILE CHECKSUM: d9fa6b1d926d7c3a3997bbf4faad2d0ca551d724
 
 COCOAPODS: 1.9.3

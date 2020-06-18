@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12115077249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12115076249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift */; };
 		128D1D4D2497E4F40066E58F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D4C2497E4F40066E58F /* AppDelegate.swift */; };
 		128D1D4F2497E4F40066E58F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D4E2497E4F40066E58F /* SceneDelegate.swift */; };
 		128D1D512497E4F40066E58F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D502497E4F40066E58F /* ViewController.swift */; };
 		128D1D542497E4F40066E58F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 128D1D522497E4F40066E58F /* Main.storyboard */; };
 		128D1D562497E4F60066E58F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 128D1D552497E4F60066E58F /* Assets.xcassets */; };
 		128D1D592497E4F60066E58F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 128D1D572497E4F60066E58F /* LaunchScreen.storyboard */; };
+		128D1D61249953E10066E58F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D60249953E10066E58F /* AppConstants.swift */; };
+		128D1D632499611B0066E58F /* OAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D622499611B0066E58F /* OAuthService.swift */; };
+		128D1D65249967E50066E58F /* StoredData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D64249967E50066E58F /* StoredData.swift */; };
 		5734E42B9C69BB9A003D7719 /* Pods_GistApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0B1018394DB8C13210B12A2 /* Pods_GistApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12115076249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2SwiftExtension.swift; sourceTree = "<group>"; };
 		128D1D492497E4F40066E58F /* GistApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GistApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		128D1D4C2497E4F40066E58F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		128D1D4E2497E4F40066E58F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,6 +30,9 @@
 		128D1D552497E4F60066E58F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		128D1D582497E4F60066E58F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		128D1D5A2497E4F60066E58F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		128D1D60249953E10066E58F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		128D1D622499611B0066E58F /* OAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthService.swift; sourceTree = "<group>"; };
+		128D1D64249967E50066E58F /* StoredData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredData.swift; sourceTree = "<group>"; };
 		A115B6D735FB63E8490D3E34 /* Pods-GistApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistApp.release.xcconfig"; path = "Target Support Files/Pods-GistApp/Pods-GistApp.release.xcconfig"; sourceTree = "<group>"; };
 		DF603651C8507472123E01DD /* Pods-GistApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistApp.debug.xcconfig"; path = "Target Support Files/Pods-GistApp/Pods-GistApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E0B1018394DB8C13210B12A2 /* Pods_GistApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GistApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12115075249A8E0000B9EFB0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				12115076249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		128D1D402497E4F40066E58F = {
 			isa = PBXGroup;
 			children = (
@@ -63,9 +79,13 @@
 		128D1D4B2497E4F40066E58F /* GistApp */ = {
 			isa = PBXGroup;
 			children = (
+				12115075249A8E0000B9EFB0 /* Extension */,
 				128D1D4C2497E4F40066E58F /* AppDelegate.swift */,
 				128D1D4E2497E4F40066E58F /* SceneDelegate.swift */,
+				128D1D60249953E10066E58F /* AppConstants.swift */,
 				128D1D502497E4F40066E58F /* ViewController.swift */,
+				128D1D622499611B0066E58F /* OAuthService.swift */,
+				128D1D64249967E50066E58F /* StoredData.swift */,
 				128D1D522497E4F40066E58F /* Main.storyboard */,
 				128D1D552497E4F60066E58F /* Assets.xcassets */,
 				128D1D572497E4F60066E58F /* LaunchScreen.storyboard */,
@@ -208,7 +228,11 @@
 			files = (
 				128D1D512497E4F40066E58F /* ViewController.swift in Sources */,
 				128D1D4D2497E4F40066E58F /* AppDelegate.swift in Sources */,
+				128D1D632499611B0066E58F /* OAuthService.swift in Sources */,
 				128D1D4F2497E4F40066E58F /* SceneDelegate.swift in Sources */,
+				12115077249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift in Sources */,
+				128D1D65249967E50066E58F /* StoredData.swift in Sources */,
+				128D1D61249953E10066E58F /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
