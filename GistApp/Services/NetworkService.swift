@@ -21,7 +21,6 @@ class NetworkService {
         
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in
-            print("response\n", response)
             guard let response = response else {
                 completionHandler(.failure(.noResponse))
                 return }
@@ -41,9 +40,6 @@ class NetworkService {
             do {
                 let gistList: [Gist] = try JSONDecoder().decode([Gist].self, from: data)
                 completionHandler(.success(gistList))
-                
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                print("JSON\n", json)
             } catch {
                 completionHandler(.failure(.jsonDecoding))
             }

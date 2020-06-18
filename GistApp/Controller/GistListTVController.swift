@@ -14,7 +14,6 @@ class GistListTVController: UITableViewController {
     private var gistArray = [Gist]()
     
     override func viewDidAppear(_ animated: Bool) {
-        print("viewDidAppear")
         if StoredData.token == nil { segueToOAuth() }
         else {
             token = StoredData.token
@@ -37,7 +36,6 @@ class GistListTVController: UITableViewController {
             switch result {
             case .success(let returnedContentList):
                 self.gistArray = returnedContentList
-                print("gistArray \n", self.gistArray[0])
             case .failure(let error):
                 ErrorAlertService.showErrorAlert(error: error, viewController: self)
             }
