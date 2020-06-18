@@ -13,9 +13,7 @@ import OAuthSwift
 struct Constants {
     
     struct API {
-        struct GitHub {
-            static let API = "https://api.github.com/"
-        }
+        static let GitHubAPI  = "https://api.github.com/"
     }
     
     struct URL {

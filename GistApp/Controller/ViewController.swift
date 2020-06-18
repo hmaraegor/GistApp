@@ -25,8 +25,9 @@ class ViewController: UIViewController {
             switch result {
             case .success(let responseToken):
                 print()
-                //StoredData.token = responseToken
-                //print(StoredData.token)
+                StoredData.token = responseToken
+                self.dismiss(animated: true, completion: nil)
+                print(StoredData.token)
             case .failure(let error):
                 print(error)
             }
@@ -39,7 +40,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
 
