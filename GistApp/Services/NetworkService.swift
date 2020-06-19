@@ -10,10 +10,8 @@ import Foundation
 
 class NetworkService {
     
-    private init() {}
-    
-    static func getData(url: String, completionHandler:
-        @escaping (Result<[Gist], NetworkServiceError>) -> ()) {
+    func getData<T: Codable>(url: String, completionHandler:
+        @escaping (Result<T, NetworkServiceError>) -> ()) {
         
         guard let url = URL(string: url) else { completionHandler(.failure(.badURL))
             return
@@ -38,7 +36,7 @@ class NetworkService {
             }
 
             do {
-                let gistList: [Gist] = try JSONDecoder().decode([Gist].self, from: data)
+                let gistList = try JSONDecoder().decode(T.self, from: data)
                 completionHandler(.success(gistList))
             } catch {
                 completionHandler(.failure(.jsonDecoding))

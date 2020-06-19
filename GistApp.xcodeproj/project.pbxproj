@@ -105,9 +105,9 @@
 		12115085249BB79600B9EFB0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1211507B249BB6A700B9EFB0 /* NetworkService.swift */,
 				1211507C249BB6A700B9EFB0 /* ErrorAlertService.swift */,
 				1211507D249BB6A700B9EFB0 /* NetworkServiceError.swift */,
+				1211507B249BB6A700B9EFB0 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
