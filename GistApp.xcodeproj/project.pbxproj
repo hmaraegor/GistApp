@@ -17,6 +17,7 @@
 		12115090249E38E500B9EFB0 /* GistList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1211508F249E38E500B9EFB0 /* GistList.storyboard */; };
 		12115092249F4F9500B9EFB0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12115091249F4F9500B9EFB0 /* RootViewController.swift */; };
 		1211509424A0D95B00B9EFB0 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1211509324A0D95B00B9EFB0 /* CustomCell.xib */; };
+		1211509624A1025E00B9EFB0 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1211508E249E1ABD00B9EFB0 /* OAuth.storyboard */; };
 		128D1D4D2497E4F40066E58F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D4C2497E4F40066E58F /* AppDelegate.swift */; };
 		128D1D4F2497E4F40066E58F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D4E2497E4F40066E58F /* SceneDelegate.swift */; };
 		128D1D512497E4F40066E58F /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D502497E4F40066E58F /* OAuthViewController.swift */; };
@@ -36,7 +37,7 @@
 		1211507C249BB6A700B9EFB0 /* ErrorAlertService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertService.swift; sourceTree = "<group>"; };
 		1211507D249BB6A700B9EFB0 /* NetworkServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceError.swift; sourceTree = "<group>"; };
 		12115086249BB99F00B9EFB0 /* Gist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
-		1211508E249E1ABD00B9EFB0 /* OAuth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = OAuth.storyboard; path = /Users/egor.khmara/iOS/GistApp/GistApp/Scene/Auth/OAuth.storyboard; sourceTree = "<absolute>"; };
+		1211508E249E1ABD00B9EFB0 /* OAuth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
 		1211508F249E38E500B9EFB0 /* GistList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GistList.storyboard; sourceTree = "<group>"; };
 		12115091249F4F9500B9EFB0 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		1211509324A0D95B00B9EFB0 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		12115083249BB6BE00B9EFB0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1211507A249BB6A700B9EFB0 /* CustomTableViewCell.swift */,
 				128D1D572497E4F60066E58F /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -107,6 +107,7 @@
 		1211508A249DF20C00B9EFB0 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				1211509524A0EFCC00B9EFB0 /* CustomCell */,
 				1211508C249DFF2600B9EFB0 /* Auth */,
 				1211508B249DFF1300B9EFB0 /* GitList */,
 			);
@@ -118,7 +119,6 @@
 			children = (
 				1211508F249E38E500B9EFB0 /* GistList.storyboard */,
 				12115078249B8EFA00B9EFB0 /* GistListTVController.swift */,
-				1211509324A0D95B00B9EFB0 /* CustomCell.xib */,
 			);
 			path = GitList;
 			sourceTree = "<group>";
@@ -138,6 +138,15 @@
 				128D1D60249953E10066E58F /* AppConstants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		1211509524A0EFCC00B9EFB0 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				1211507A249BB6A700B9EFB0 /* CustomTableViewCell.swift */,
+				1211509324A0D95B00B9EFB0 /* CustomCell.xib */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		128D1D402497E4F40066E58F = {
@@ -253,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1211509624A1025E00B9EFB0 /* OAuth.storyboard in Resources */,
 				128D1D592497E4F60066E58F /* LaunchScreen.storyboard in Resources */,
 				12115090249E38E500B9EFB0 /* GistList.storyboard in Resources */,
 				1211509424A0D95B00B9EFB0 /* CustomCell.xib in Resources */,

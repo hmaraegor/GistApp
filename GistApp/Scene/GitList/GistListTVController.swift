@@ -13,8 +13,7 @@ class GistListTVController: UITableViewController {
     private var gistArray = [Gist]()
     
     override func viewDidAppear(_ animated: Bool) {
-        if StoredData.token == nil { segueToOAuth() }
-        else { gistListRequest() }
+        gistListRequest()
     }
     
     override func viewDidLoad() {
@@ -24,13 +23,8 @@ class GistListTVController: UITableViewController {
         tableView.register(nib, forCellReuseIdentifier: "Cell")
     }
     
-    @objc
     private func transitToOAuth() {
        SceneDelegate.shared.rootViewController.switchToOAuth()
-    }
-    
-    func segueToOAuth() {
-        //performSegue(withIdentifier: "SegueToOAuthScreen", sender: self)
     }
     
     private func gistListRequest() {
@@ -49,6 +43,9 @@ class GistListTVController: UITableViewController {
             }
         }
         
+    }
+    
+    func getListFromData(){
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

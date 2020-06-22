@@ -19,8 +19,6 @@ class OAuthViewController: UIViewController {
     
     @IBAction func OAuthButtonTapped(_ sender: UIButton) {
         
-        let rootViewController = SceneDelegate.shared.rootViewController
-        
         let oauthswift = OAuth2Swift.github
 
         OAuthService().getToken(oauthObj: oauthswift) { result in
@@ -30,6 +28,7 @@ class OAuthViewController: UIViewController {
                 StoredData.token = responseToken
                 self.dismiss(animated: true, completion: nil)
                 print(StoredData.token)
+                self.transitToList()
             case .failure(let error):
                 print(error)
             }
@@ -39,14 +38,22 @@ class OAuthViewController: UIViewController {
         
     }
     
-    @objc
     private func transitToList() {
        SceneDelegate.shared.rootViewController.switchToGistListScreen()
     }
     
+    private func transitTo() {
+        if StoredData.token == nil {
+            SceneDelegate.shared.rootViewController.showOAuthScreen()
+        }
+        else {
+            SceneDelegate.shared.rootViewController.switchToGistListScreen()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.white
     }
 
 

@@ -24,50 +24,41 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addChild(current)                   // 1
-        current.view.frame = view.bounds    // 2
-        view.addSubview(current.view)       // 3
-        current.didMove(toParent: self)     // 4
+        addChild(current)
+        current.view.frame = view.bounds
+        view.addSubview(current.view)
+        current.didMove(toParent: self)
     }
     
 
     func showOAuthScreen() {
-        let new = UINavigationController(rootViewController: OAuthViewController())  // 1
-        addChild(new)                       // 2
-        new.view.frame = view.bounds        // 3
-        view.addSubview(new.view)           // 4
-        new.didMove(toParent: self)         // 5
-        current.willMove(toParent: nil)     // 6
-        current.view.removeFromSuperview()  // 7
-        current.removeFromParent()          // 8
-        current = new                       // 9
+        let storyboard = UIStoryboard(name: "OAuth", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "OAuthVC")
+        //self.present(vc, animated: false, completion: nil)
+        //let new = UINavigationController(rootViewController: OAuthViewController())
+        let new = UINavigationController(rootViewController: vc)
+        addChild(new)
+        new.view.frame = view.bounds
+        view.addSubview(new.view)
+        new.didMove(toParent: self)
+        current.willMove(toParent: nil)
+        current.view.removeFromSuperview()
+        current.removeFromParent()
+        current = new
+
      }
     
     private func animateFadeTransition(to new: UIViewController, completion: (() -> Void)? = nil) {
         current.willMove(toParent: nil)
         addChild(new)
-        
-        transition(from: current, to: new, duration: 0.3, options: [.transitionCrossDissolve, .curveEaseOut], animations: {
-        }) { completed in
-            self.current.removeFromParent()
-            new.didMove(toParent: self)
-            self.current = new
-            completion?()  //1
-        }
+        transition(from: current, to: new, duration: 0.0, options: [], animations: nil, completion: nil)
     }
     
     private func animateDismissTransition(to new: UIViewController, completion: (() -> Void)? = nil) {
-        let initialFrame = CGRect(x: -view.bounds.width, y: 0, width: view.bounds.width, height: view.bounds.height)
+        new.view.frame = CGRect(x: -view.bounds.width, y: 0, width: view.bounds.width, height: view.bounds.height)
         current.willMove(toParent: nil)
         addChild(new)
-        transition(from: current, to: new, duration: 0.3, options: [], animations: {
-            new.view.frame = self.view.bounds
-        }) { completed in
-            self.current.removeFromParent()
-            new.didMove(toParent: self)
-            self.current = new
-            completion?()
-        }
+        transition(from: current, to: new, duration: 0.0, options: [], animations: nil, completion: nil)
     }
     
     func switchToGistListScreen() {
@@ -110,7 +101,7 @@ class SplashViewController: UIViewController {
     
     private func transitTo() {
         if StoredData.token == nil {
-            SceneDelegate.shared.rootViewController.switchToOAuth()
+            SceneDelegate.shared.rootViewController.showOAuthScreen()
         }
         else {
             SceneDelegate.shared.rootViewController.switchToGistListScreen()
@@ -120,9 +111,9 @@ class SplashViewController: UIViewController {
     
     private func makeServiceCall() {
         activityIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
-           self.activityIndicator.stopAnimating()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
             self.transitTo()
+            self.activityIndicator.stopAnimating()
         }
     }
 }
