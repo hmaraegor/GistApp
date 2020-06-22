@@ -19,6 +19,9 @@ class GistListTVController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib: UINib = UINib(nibName: "CustomCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "Cell")
     }
     
     @objc

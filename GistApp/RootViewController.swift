@@ -31,7 +31,7 @@ class RootViewController: UIViewController {
     }
     
 
-    func showLoginScreen() {
+    func showOAuthScreen() {
         let new = UINavigationController(rootViewController: OAuthViewController())  // 1
         addChild(new)                       // 2
         new.view.frame = view.bounds        // 3
@@ -46,52 +46,52 @@ class RootViewController: UIViewController {
     private func animateFadeTransition(to new: UIViewController, completion: (() -> Void)? = nil) {
         current.willMove(toParent: nil)
         addChild(new)
-       
-       transition(from: current, to: new, duration: 0.3, options: [.transitionCrossDissolve, .curveEaseOut], animations: {
-       }) { completed in
-        self.current.removeFromParent()
-        new.didMove(toParent: self)
+        
+        transition(from: current, to: new, duration: 0.3, options: [.transitionCrossDissolve, .curveEaseOut], animations: {
+        }) { completed in
+            self.current.removeFromParent()
+            new.didMove(toParent: self)
             self.current = new
             completion?()  //1
-       }
+        }
     }
     
     private func animateDismissTransition(to new: UIViewController, completion: (() -> Void)? = nil) {
-       let initialFrame = CGRect(x: -view.bounds.width, y: 0, width: view.bounds.width, height: view.bounds.height)
+        let initialFrame = CGRect(x: -view.bounds.width, y: 0, width: view.bounds.width, height: view.bounds.height)
         current.willMove(toParent: nil)
         addChild(new)
-       transition(from: current, to: new, duration: 0.3, options: [], animations: {
-          new.view.frame = self.view.bounds
-       }) { completed in
-        self.current.removeFromParent()
-        new.didMove(toParent: self)
-          self.current = new
-          completion?()
-       }
+        transition(from: current, to: new, duration: 0.3, options: [], animations: {
+            new.view.frame = self.view.bounds
+        }) { completed in
+            self.current.removeFromParent()
+            new.didMove(toParent: self)
+            self.current = new
+            completion?()
+        }
     }
     
-    func switchToMainScreen() {
-       let mainViewController = GistListTVController()
-       let new = UINavigationController(rootViewController: mainViewController)
-       animateFadeTransition(to: new)
+    func switchToGistListScreen() {
+       let gistListViewController = GistListTVController()
+       let gistListScreen = UINavigationController(rootViewController: gistListViewController)
+       animateFadeTransition(to: gistListScreen)
     }
     
     func switchToOAuth() {
        let oauthViewController = OAuthViewController()
-       let logoutScreen = UINavigationController(rootViewController: oauthViewController)
-       animateDismissTransition(to: logoutScreen)
+       let oauthScreen = UINavigationController(rootViewController: oauthViewController)
+       animateDismissTransition(to: oauthScreen)
     }
 
 }
 
 
 extension SceneDelegate {
-   static var shared: SceneDelegate {
-      return UIApplication.shared.delegate as! SceneDelegate
-   }
-var rootViewController: RootViewController {
-      return window!.rootViewController as! RootViewController
-   }
+    static var shared: SceneDelegate {
+        return UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+    }
+    var rootViewController: RootViewController {
+        return window!.rootViewController as! RootViewController
+    }
 }
 
 
@@ -110,19 +110,17 @@ class SplashViewController: UIViewController {
     
     private func transitTo() {
         if StoredData.token == nil {
-            //OAuthViewController
             SceneDelegate.shared.rootViewController.switchToOAuth()
         }
         else {
-            //GistListTVController
-            SceneDelegate.shared.rootViewController.switchToMainScreen()
+            SceneDelegate.shared.rootViewController.switchToGistListScreen()
         }
     }
     
     
     private func makeServiceCall() {
         activityIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
            self.activityIndicator.stopAnimating()
             self.transitTo()
         }

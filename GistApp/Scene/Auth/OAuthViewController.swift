@@ -41,7 +41,7 @@ class OAuthViewController: UIViewController {
     
     @objc
     private func transitToList() {
-       SceneDelegate.shared.rootViewController.switchToMainScreen()
+       SceneDelegate.shared.rootViewController.switchToGistListScreen()
     }
     
     
