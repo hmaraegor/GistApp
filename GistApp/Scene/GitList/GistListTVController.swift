@@ -14,17 +14,20 @@ class GistListTVController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if StoredData.token == nil { segueToOAuth() }
-        else {
-            gistListRequest()
-        }
+        else { gistListRequest() }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    @objc
+    private func transitToOAuth() {
+       SceneDelegate.shared.rootViewController.switchToOAuth()
+    }
+    
     func segueToOAuth() {
-        performSegue(withIdentifier: "SegueToOAuthScreen", sender: self)
+        //performSegue(withIdentifier: "SegueToOAuthScreen", sender: self)
     }
     
     private func gistListRequest() {

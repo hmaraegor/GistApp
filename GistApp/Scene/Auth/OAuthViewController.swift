@@ -13,11 +13,13 @@
 import UIKit
 import OAuthSwift
 
-class ViewController: UIViewController {
+class OAuthViewController: UIViewController {
 
     private var oauthswift: OAuth2Swift?
     
     @IBAction func OAuthButtonTapped(_ sender: UIButton) {
+        
+        let rootViewController = SceneDelegate.shared.rootViewController
         
         let oauthswift = OAuth2Swift.github
 
@@ -35,6 +37,11 @@ class ViewController: UIViewController {
 
         self.oauthswift = oauthswift
         
+    }
+    
+    @objc
+    private func transitToList() {
+       SceneDelegate.shared.rootViewController.switchToMainScreen()
     }
     
     
