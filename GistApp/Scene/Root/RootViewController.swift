@@ -11,6 +11,7 @@ import UIKit
 class RootViewController: UIViewController {
     
     private var current: UIViewController
+    var gist: Gist?
     
     init() {
        self.current = SplashViewController()
@@ -45,8 +46,26 @@ class RootViewController: UIViewController {
         current.view.removeFromSuperview()
         current.removeFromParent()
         current = new
-
+        
+//        let splashVC = splash as! SplashViewController
+//        splashVC.activityIndicator.stopAnimating()
      }
+    
+    func showGistScreen() {
+            let storyboard = UIStoryboard(name: "Gist", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "GistVC")
+            //self.present(vc, animated: false, completion: nil)
+            //let new = UINavigationController(rootViewController: OAuthViewController())
+            let new = UINavigationController(rootViewController: vc)
+            addChild(new)
+            new.view.frame = view.bounds
+            view.addSubview(new.view)
+            new.didMove(toParent: self)
+            current.willMove(toParent: nil)
+            current.view.removeFromSuperview()
+            current.removeFromParent()
+            current = new
+         }
     
     private func animateFadeTransition(to new: UIViewController, completion: (() -> Void)? = nil) {
         current.willMove(toParent: nil)
@@ -61,59 +80,16 @@ class RootViewController: UIViewController {
         transition(from: current, to: new, duration: 0.0, options: [], animations: nil, completion: nil)
     }
     
-    func switchToGistListScreen() {
-       let gistListViewController = GistListTVController()
+    func switchToGistListScreen(viewController: UIViewController = GistListTVController()) {
+       let gistListViewController = viewController
        let gistListScreen = UINavigationController(rootViewController: gistListViewController)
        animateFadeTransition(to: gistListScreen)
     }
     
-    func switchToOAuth() {
-       let oauthViewController = OAuthViewController()
+    func switchToOAuth(viewController: UIViewController = OAuthViewController()) {
+       let oauthViewController = viewController
        let oauthScreen = UINavigationController(rootViewController: oauthViewController)
        animateDismissTransition(to: oauthScreen)
     }
 
-}
-
-
-extension SceneDelegate {
-    static var shared: SceneDelegate {
-        return UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
-    }
-    var rootViewController: RootViewController {
-        return window!.rootViewController as! RootViewController
-    }
-}
-
-
-class SplashViewController: UIViewController {
-    
-    private let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.white
-        view.addSubview(activityIndicator)
-        activityIndicator.frame = view.bounds
-        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.4)
-        makeServiceCall()
-    }
-    
-    private func transitTo() {
-        if StoredData.token == nil {
-            SceneDelegate.shared.rootViewController.showOAuthScreen()
-        }
-        else {
-            SceneDelegate.shared.rootViewController.switchToGistListScreen()
-        }
-    }
-    
-    
-    private func makeServiceCall() {
-        activityIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
-            self.transitTo()
-            self.activityIndicator.stopAnimating()
-        }
-    }
 }

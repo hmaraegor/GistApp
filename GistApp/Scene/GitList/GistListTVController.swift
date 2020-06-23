@@ -28,7 +28,7 @@ class GistListTVController: UITableViewController {
     }
     
     private func gistListRequest() {
-        let url = Constants.API.GitHub.baseURL + "gists?access_token=" + (StoredData.token ?? "")
+        let url = Constants.API.GitHub.baseURL + "gists"//?access_token=" + (StoredData.token ?? "")
         NetworkService().getData(url: url) { (result: Result<[Gist], NetworkServiceError>) in
             
             switch result {
@@ -67,4 +67,14 @@ class GistListTVController: UITableViewController {
         return 85
     }
 
+//    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+//        <#code#>
+//    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("didSelectRowAt", indexPath.row)
+        SceneDelegate.shared.rootViewController.gist = gistArray[indexPath.row]
+        SceneDelegate.shared.rootViewController.showGistScreen()
+    }
+    
 }

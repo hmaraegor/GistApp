@@ -34,6 +34,13 @@ class NetworkService {
                 completionHandler(.failure(.badResponse))
                 return
             }
+            
+//            do {
+//                let json = try JSONSerialization.jsonObject(with: data, options: [])
+//                print("json\n", json)
+//            } catch {
+//                print("json error")
+//            }
 
             do {
                 let gistList = try JSONDecoder().decode(T.self, from: data)
