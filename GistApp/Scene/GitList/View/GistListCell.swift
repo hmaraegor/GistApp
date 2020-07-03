@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class GistListCell: UITableViewCell {
     
     @IBOutlet private var files: UILabel!
     @IBOutlet private var author: UILabel!
@@ -18,10 +18,10 @@ class CustomTableViewCell: UITableViewCell {
     func configure(with content: Gist) {
         files.text = "Gist files: " + getFileNames(from: content).joined(separator:", ")
         author.text = "Author: " + content.owner.login
-        date.text = "Date: " + getDate(strDate: content.created_at)
+        date.text = "Date: " + getDate(strDate: content.createdAt)
         
         avatarImage.layer.cornerRadius = avatarImage.frame.size.height / 5
-        guard let stringURL = content.owner.avatar_url  else { return }
+        guard let stringURL = content.owner.avatarUrl  else { return }
         ImageDownloader.downloadImage(stringURL: stringURL) { (imageData) in
 
             DispatchQueue.main.async {
@@ -35,18 +35,14 @@ class CustomTableViewCell: UITableViewCell {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        var myDate = formatter.date(from: strDate) //as NSDate?
+        let myDate = formatter.date(from: strDate) //as NSDate?
         formatter.dateFormat = "HH:mm d MMM y"
-        var newDate = formatter.string(from: myDate!)
+        let newDate = formatter.string(from: myDate!)
         
         return newDate
     }
     
-    func getFileNames(from content: Gist) ->[String] {
-        var names = [String]()
-        for (key, value) in content.files {
-                names.append(key)
-        }
-        return names
+    func getFileNames(from content: Gist) -> [String] {
+        return content.files.map { $0.filename }
     }
 }

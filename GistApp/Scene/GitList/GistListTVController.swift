@@ -13,18 +13,22 @@ class GistListTVController: UITableViewController {
     private var gistArray = [Gist]()
     
     override func viewDidAppear(_ animated: Bool) {
+        if StoredData.token == nil { presentOAuthVC() }
         gistListRequest()
+    }
+    
+    func presentOAuthVC() {
+        let storyboard = UIStoryboard(name: "OAuth", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "OAuthVC")
+        self.present(vc, animated: true, completion: nil)
+        //navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib: UINib = UINib(nibName: "CustomCell", bundle: nil)
+        let nib = UINib(nibName: "CustomCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
-    }
-    
-    private func transitToOAuth() {
-       SceneDelegate.shared.rootViewController.switchToOAuth()
     }
     
     private func gistListRequest() {
@@ -53,7 +57,7 @@ class GistListTVController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? GistListCell else {
             return UITableViewCell()
         }
         
@@ -64,17 +68,19 @@ class GistListTVController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //return UITableView.automaticDimension // Why UITableView? Why not self?
         return 85
     }
-
-//    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
-//        <#code#>
-//    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("didSelectRowAt", indexPath.row)
-        SceneDelegate.shared.rootViewController.gist = gistArray[indexPath.row]
-        SceneDelegate.shared.rootViewController.showGistScreen()
+        presentGistController(with: gistArray[indexPath.row])
+    }
+    
+    func presentGistController(with gist: Gist) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Gist", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "GistVC")
+        (vc as? GistViewController)?.gist = gist
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

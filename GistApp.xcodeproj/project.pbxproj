@@ -9,18 +9,15 @@
 /* Begin PBXBuildFile section */
 		12115077249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12115076249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift */; };
 		12115079249B8EFA00B9EFB0 /* GistListTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12115078249B8EFA00B9EFB0 /* GistListTVController.swift */; };
-		1211507E249BB6A800B9EFB0 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211507A249BB6A700B9EFB0 /* CustomTableViewCell.swift */; };
+		1211507E249BB6A800B9EFB0 /* GistListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211507A249BB6A700B9EFB0 /* GistListCell.swift */; };
 		1211507F249BB6A800B9EFB0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211507B249BB6A700B9EFB0 /* NetworkService.swift */; };
 		12115080249BB6A800B9EFB0 /* ErrorAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211507C249BB6A700B9EFB0 /* ErrorAlertService.swift */; };
 		12115081249BB6A800B9EFB0 /* NetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211507D249BB6A700B9EFB0 /* NetworkServiceError.swift */; };
 		12115087249BB99F00B9EFB0 /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12115086249BB99F00B9EFB0 /* Gist.swift */; };
 		12115090249E38E500B9EFB0 /* GistList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1211508F249E38E500B9EFB0 /* GistList.storyboard */; };
-		12115092249F4F9500B9EFB0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12115091249F4F9500B9EFB0 /* RootViewController.swift */; };
 		1211509424A0D95B00B9EFB0 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1211509324A0D95B00B9EFB0 /* CustomCell.xib */; };
 		1211509624A1025E00B9EFB0 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1211508E249E1ABD00B9EFB0 /* OAuth.storyboard */; };
 		1219790824A1F8F0009A2365 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1219790624A1F686009A2365 /* ImageDownloader.swift */; };
-		1219790C24A21281009A2365 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1219790B24A21281009A2365 /* SplashViewController.swift */; };
-		1219790E24A22741009A2365 /* SceneDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1219790D24A22741009A2365 /* SceneDelegateExtension.swift */; };
 		1219791124A227DC009A2365 /* Gist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1219791024A227DC009A2365 /* Gist.storyboard */; };
 		1219791324A22843009A2365 /* GistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1219791224A22843009A2365 /* GistViewController.swift */; };
 		128D1D4D2497E4F40066E58F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D4C2497E4F40066E58F /* AppDelegate.swift */; };
@@ -37,18 +34,15 @@
 /* Begin PBXFileReference section */
 		12115076249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2SwiftExtension.swift; sourceTree = "<group>"; };
 		12115078249B8EFA00B9EFB0 /* GistListTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListTVController.swift; sourceTree = "<group>"; };
-		1211507A249BB6A700B9EFB0 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		1211507A249BB6A700B9EFB0 /* GistListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GistListCell.swift; sourceTree = "<group>"; };
 		1211507B249BB6A700B9EFB0 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1211507C249BB6A700B9EFB0 /* ErrorAlertService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertService.swift; sourceTree = "<group>"; };
 		1211507D249BB6A700B9EFB0 /* NetworkServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceError.swift; sourceTree = "<group>"; };
 		12115086249BB99F00B9EFB0 /* Gist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
 		1211508E249E1ABD00B9EFB0 /* OAuth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
 		1211508F249E38E500B9EFB0 /* GistList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GistList.storyboard; sourceTree = "<group>"; };
-		12115091249F4F9500B9EFB0 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		1211509324A0D95B00B9EFB0 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		1219790624A1F686009A2365 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		1219790B24A21281009A2365 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		1219790D24A22741009A2365 /* SceneDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateExtension.swift; sourceTree = "<group>"; };
 		1219791024A227DC009A2365 /* Gist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gist.storyboard; sourceTree = "<group>"; };
 		1219791224A22843009A2365 /* GistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistViewController.swift; sourceTree = "<group>"; };
 		128D1D492497E4F40066E58F /* GistApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GistApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				12115076249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift */,
-				1219790D24A22741009A2365 /* SceneDelegateExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -120,9 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				1219790F24A227BD009A2365 /* Gist */,
-				1219790A24A211C9009A2365 /* Splash */,
-				1219790924A200E2009A2365 /* Root */,
-				1211509524A0EFCC00B9EFB0 /* CustomCell */,
 				1211508C249DFF2600B9EFB0 /* Auth */,
 				1211508B249DFF1300B9EFB0 /* GitList */,
 			);
@@ -132,6 +122,7 @@
 		1211508B249DFF1300B9EFB0 /* GitList */ = {
 			isa = PBXGroup;
 			children = (
+				1211509524A0EFCC00B9EFB0 /* View */,
 				1211508F249E38E500B9EFB0 /* GistList.storyboard */,
 				12115078249B8EFA00B9EFB0 /* GistListTVController.swift */,
 			);
@@ -155,29 +146,13 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		1211509524A0EFCC00B9EFB0 /* CustomCell */ = {
+		1211509524A0EFCC00B9EFB0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1211507A249BB6A700B9EFB0 /* CustomTableViewCell.swift */,
+				1211507A249BB6A700B9EFB0 /* GistListCell.swift */,
 				1211509324A0D95B00B9EFB0 /* CustomCell.xib */,
 			);
-			path = CustomCell;
-			sourceTree = "<group>";
-		};
-		1219790924A200E2009A2365 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				12115091249F4F9500B9EFB0 /* RootViewController.swift */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		1219790A24A211C9009A2365 /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				1219790B24A21281009A2365 /* SplashViewController.swift */,
-			);
-			path = Splash;
+			path = View;
 			sourceTree = "<group>";
 		};
 		1219790F24A227BD009A2365 /* Gist */ = {
@@ -363,20 +338,17 @@
 				1219791324A22843009A2365 /* GistViewController.swift in Sources */,
 				1219790824A1F8F0009A2365 /* ImageDownloader.swift in Sources */,
 				12115081249BB6A800B9EFB0 /* NetworkServiceError.swift in Sources */,
-				1211507E249BB6A800B9EFB0 /* CustomTableViewCell.swift in Sources */,
+				1211507E249BB6A800B9EFB0 /* GistListCell.swift in Sources */,
 				128D1D512497E4F40066E58F /* OAuthViewController.swift in Sources */,
 				128D1D4D2497E4F40066E58F /* AppDelegate.swift in Sources */,
-				1219790E24A22741009A2365 /* SceneDelegateExtension.swift in Sources */,
 				128D1D632499611B0066E58F /* OAuthService.swift in Sources */,
 				128D1D4F2497E4F40066E58F /* SceneDelegate.swift in Sources */,
 				12115087249BB99F00B9EFB0 /* Gist.swift in Sources */,
 				12115080249BB6A800B9EFB0 /* ErrorAlertService.swift in Sources */,
 				12115077249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift in Sources */,
-				12115092249F4F9500B9EFB0 /* RootViewController.swift in Sources */,
 				128D1D65249967E50066E58F /* StoredData.swift in Sources */,
 				12115079249B8EFA00B9EFB0 /* GistListTVController.swift in Sources */,
 				128D1D61249953E10066E58F /* AppConstants.swift in Sources */,
-				1219790C24A21281009A2365 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

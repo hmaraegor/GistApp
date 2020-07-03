@@ -9,13 +9,13 @@
         <!--Gist ListTV Controller-->
         <scene sceneID="yID-Qo-dFX">
             <objects>
-                <tableViewController id="8Ke-CP-BJ0" customClass="GistListTVController" customModule="GistApp" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GistListTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Ke-CP-BJ0" customClass="GistListTVController" customModule="GistApp" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Drf-em-0b9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="3hk-xd-JMo" customClass="CustomTableViewCell" customModule="GistApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="3hk-xd-JMo" customClass="GistListCell" customModule="GistApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3hk-xd-JMo" id="tUt-vD-CSG">

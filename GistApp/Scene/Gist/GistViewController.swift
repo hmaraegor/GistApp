@@ -10,24 +10,18 @@ import UIKit
 
 class GistViewController: UIViewController {
     
-    @IBOutlet weak var gistTextView: UITextView!
+    @IBOutlet private weak var gistTextView: UITextView!
     
-    @IBAction func backButton_Tapped(_ sender: UIButton) {
-        SceneDelegate.shared.rootViewController.switchToGistListScreen()
-    }
+    var gist: Gist?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let gist = SceneDelegate.shared.rootViewController.gist else { return }
+        guard let gist = self.gist else { return }
         let gistFiles = getFileNames(from: gist)
-        gistTextView.text = gist.files[gistFiles[0]]?.raw_url
+        gistTextView.text = gist.files.first?.rawUrl
     }
     
-    func getFileNames(from content: Gist) ->[String] {
-        var names = [String]()
-        for (key, value) in content.files {
-                names.append(key)
-        }
-        return names
+    func getFileNames(from content: Gist) -> [String] {
+        return content.files.map { $0.filename }
     }
 }
