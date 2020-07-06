@@ -9,20 +9,8 @@
 import UIKit
 
 class GistListTVController: UITableViewController {
-
-    private var gistArray = [Gist]()
     
-    override func viewDidAppear(_ animated: Bool) {
-        if StoredData.token == nil { presentOAuthVC() }
-        gistListRequest()
-    }
-    
-    func presentOAuthVC() {
-        let storyboard = UIStoryboard(name: "OAuth", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "OAuthVC")
-        self.present(vc, animated: true, completion: nil)
-        //navigationController?.pushViewController(vc, animated: true)
-    }
+    var gistArray = [Gist]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,31 +19,31 @@ class GistListTVController: UITableViewController {
         tableView.register(nib, forCellReuseIdentifier: "Cell")
     }
     
-    private func gistListRequest() {
-        let url = Constants.API.GitHub.baseURL + "gists"//?access_token=" + (StoredData.token ?? "")
-        NetworkService().getData(url: url) { (result: Result<[Gist], NetworkServiceError>) in
-            
-            switch result {
-            case .success(let returnedContentList):
-                self.gistArray = returnedContentList
-            case .failure(let error):
-                ErrorAlertService.showErrorAlert(error: error, viewController: self)
-            }
-
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        
+    override func viewDidAppear(_ animated: Bool) {
+        if StoredData.token == nil { presentOAuthVC() }
+        GistService().gistListRequest(gistListVC: self, gistsURL: "gists")
     }
     
-    func getListFromData(){
+    //MARK: Present methods
+    func presentOAuthVC() {
+        let storyboard = UIStoryboard(name: "OAuth", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "OAuthVC")
+        self.present(vc, animated: true, completion: nil)
+        //navigationController?.pushViewController(vc, animated: true)
     }
-
+    
+    func presentGistController(with gist: Gist) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Gist", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "GistVC")
+        (vc as? GistViewController)?.gist = gist
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    //MARK: TableView methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gistArray.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? GistListCell else {
             return UITableViewCell()
@@ -76,11 +64,5 @@ class GistListTVController: UITableViewController {
         presentGistController(with: gistArray[indexPath.row])
     }
     
-    func presentGistController(with gist: Gist) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Gist", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "GistVC")
-        (vc as? GistViewController)?.gist = gist
-        navigationController?.pushViewController(vc, animated: true)
-    }
     
 }

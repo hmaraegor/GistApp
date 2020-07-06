@@ -26,8 +26,7 @@ class OAuthViewController: UIViewController {
             case .success(let responseToken):
                 StoredData.token = responseToken
                 self.dismiss(animated: true, completion: nil)
-                print(StoredData.token)
-                //self.transitToList()
+                print("OAuthVC StoredData.token: ", StoredData.token)
             case .failure(let error):
                 print(error)
             }

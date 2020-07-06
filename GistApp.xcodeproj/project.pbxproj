@@ -28,7 +28,8 @@
 		128D1D61249953E10066E58F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D60249953E10066E58F /* AppConstants.swift */; };
 		128D1D632499611B0066E58F /* OAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D622499611B0066E58F /* OAuthService.swift */; };
 		128D1D65249967E50066E58F /* StoredData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D64249967E50066E58F /* StoredData.swift */; };
-		5734E42B9C69BB9A003D7719 /* Pods_GistApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0B1018394DB8C13210B12A2 /* Pods_GistApp.framework */; };
+		7409047624B30704008AAA9B /* GistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409047524B30704008AAA9B /* GistService.swift */; };
+		78EEBDCD1609E0A493B7965B /* Pods_GistApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF7104C909CD01B055D7529 /* Pods_GistApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,9 +56,10 @@
 		128D1D60249953E10066E58F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		128D1D622499611B0066E58F /* OAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthService.swift; sourceTree = "<group>"; };
 		128D1D64249967E50066E58F /* StoredData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredData.swift; sourceTree = "<group>"; };
-		A115B6D735FB63E8490D3E34 /* Pods-GistApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistApp.release.xcconfig"; path = "Target Support Files/Pods-GistApp/Pods-GistApp.release.xcconfig"; sourceTree = "<group>"; };
-		DF603651C8507472123E01DD /* Pods-GistApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistApp.debug.xcconfig"; path = "Target Support Files/Pods-GistApp/Pods-GistApp.debug.xcconfig"; sourceTree = "<group>"; };
-		E0B1018394DB8C13210B12A2 /* Pods_GistApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GistApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D3A01C1D3A2C3E00F0D7D6A /* Pods-GistApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistApp.debug.xcconfig"; path = "Target Support Files/Pods-GistApp/Pods-GistApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7409047524B30704008AAA9B /* GistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistService.swift; sourceTree = "<group>"; };
+		93B6A5BE2291BFD28B6C4324 /* Pods-GistApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistApp.release.xcconfig"; path = "Target Support Files/Pods-GistApp/Pods-GistApp.release.xcconfig"; sourceTree = "<group>"; };
+		BFF7104C909CD01B055D7529 /* Pods_GistApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GistApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5734E42B9C69BB9A003D7719 /* Pods_GistApp.framework in Frameworks */,
+				78EEBDCD1609E0A493B7965B /* Pods_GistApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +107,7 @@
 				1211507D249BB6A700B9EFB0 /* NetworkServiceError.swift */,
 				128D1D622499611B0066E58F /* OAuthService.swift */,
 				1211507B249BB6A700B9EFB0 /* NetworkService.swift */,
+				7409047524B30704008AAA9B /* GistService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -170,7 +173,7 @@
 				128D1D4B2497E4F40066E58F /* GistApp */,
 				128D1D4A2497E4F40066E58F /* Products */,
 				6F5502EC7507EDAB1BB9C9AA /* Pods */,
-				56EE1826075B395E66D38E8A /* Frameworks */,
+				EC4A4C67C547DFBC08BBF096 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,21 +202,21 @@
 			path = GistApp;
 			sourceTree = "<group>";
 		};
-		56EE1826075B395E66D38E8A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E0B1018394DB8C13210B12A2 /* Pods_GistApp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		6F5502EC7507EDAB1BB9C9AA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DF603651C8507472123E01DD /* Pods-GistApp.debug.xcconfig */,
-				A115B6D735FB63E8490D3E34 /* Pods-GistApp.release.xcconfig */,
+				5D3A01C1D3A2C3E00F0D7D6A /* Pods-GistApp.debug.xcconfig */,
+				93B6A5BE2291BFD28B6C4324 /* Pods-GistApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EC4A4C67C547DFBC08BBF096 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFF7104C909CD01B055D7529 /* Pods_GistApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,11 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 128D1D5D2497E4F60066E58F /* Build configuration list for PBXNativeTarget "GistApp" */;
 			buildPhases = (
-				0DE685690E1BDC4CC92C3183 /* [CP] Check Pods Manifest.lock */,
+				D12DF9E8D4B71BC9F7669728 /* [CP] Check Pods Manifest.lock */,
 				128D1D452497E4F40066E58F /* Sources */,
 				128D1D462497E4F40066E58F /* Frameworks */,
 				128D1D472497E4F40066E58F /* Resources */,
-				25CFC440238C445D8F9B57C4 /* [CP] Embed Pods Frameworks */,
+				DBE91B4927EF418BBDDAE837 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,7 +291,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0DE685690E1BDC4CC92C3183 /* [CP] Check Pods Manifest.lock */ = {
+		D12DF9E8D4B71BC9F7669728 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -310,7 +313,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		25CFC440238C445D8F9B57C4 /* [CP] Embed Pods Frameworks */ = {
+		DBE91B4927EF418BBDDAE837 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -338,6 +341,7 @@
 				1219791324A22843009A2365 /* GistViewController.swift in Sources */,
 				1219790824A1F8F0009A2365 /* ImageDownloader.swift in Sources */,
 				12115081249BB6A800B9EFB0 /* NetworkServiceError.swift in Sources */,
+				7409047624B30704008AAA9B /* GistService.swift in Sources */,
 				1211507E249BB6A800B9EFB0 /* GistListCell.swift in Sources */,
 				128D1D512497E4F40066E58F /* OAuthViewController.swift in Sources */,
 				128D1D4D2497E4F40066E58F /* AppDelegate.swift in Sources */,
@@ -482,7 +486,7 @@
 		};
 		128D1D5E2497E4F60066E58F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF603651C8507472123E01DD /* Pods-GistApp.debug.xcconfig */;
+			baseConfigurationReference = 5D3A01C1D3A2C3E00F0D7D6A /* Pods-GistApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -501,7 +505,7 @@
 		};
 		128D1D5F2497E4F60066E58F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A115B6D735FB63E8490D3E34 /* Pods-GistApp.release.xcconfig */;
+			baseConfigurationReference = 93B6A5BE2291BFD28B6C4324 /* Pods-GistApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
