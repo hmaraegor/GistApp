@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auth View Controller-->
+        <scene sceneID="cwr-l1-28a">
+            <objects>
+                <viewController storyboardIdentifier="OAuthVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zee-lS-CJv" customClass="OAuthViewController" customModule="GistApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HMp-wR-czY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4i-lv-U2M">
+                                <rect key="frame" x="165.5" y="424" width="83" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="OAuth"/>
+                                <connections>
+                                    <action selector="OAuthButtonTapped:" destination="zee-lS-CJv" eventType="touchUpInside" id="i4l-1N-Sd5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="m4i-lv-U2M" firstAttribute="centerY" secondItem="HMp-wR-czY" secondAttribute="centerY" id="DTk-Qp-yMv"/>
+                            <constraint firstItem="m4i-lv-U2M" firstAttribute="centerX" secondItem="HMp-wR-czY" secondAttribute="centerX" id="M0I-4s-fIa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="peD-PU-cSD"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AoC-mw-5KE" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1335" y="80"/>
+        </scene>
+    </scenes>
+</document>

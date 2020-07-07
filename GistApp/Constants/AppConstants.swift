@@ -14,7 +14,7 @@ struct Constants {
     
     struct API {
         struct GitHub {
-            static let API = "https://api.github.com/"
+            static let baseURL = "https://api.github.com/"
         }
     }
     
