@@ -26,7 +26,9 @@ class GistListTVController: UITableViewController {
                 self.gistArray = array!
             }
             else if error != nil {
-                ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
+                DispatchQueue.main.async {
+                    ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
+                }
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
