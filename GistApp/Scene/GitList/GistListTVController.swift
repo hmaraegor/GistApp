@@ -21,8 +21,13 @@ class GistListTVController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if StoredData.token == nil { presentOAuthVC() }
-        GistService().gistListRequest(gistListVC: self) { array in
-            self.gistArray = array
+        GistService().gistListRequest() { (array, error) in
+            if array != nil {
+                self.gistArray = array!
+            }
+            else if error != nil {
+                ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

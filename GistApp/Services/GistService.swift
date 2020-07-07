@@ -11,8 +11,8 @@ import UIKit
 
 class GistService {
     
-    func gistListRequest(gistListVC: GistListTVController, completionHandler:
-    @escaping ([Gist]) -> ()) {
+    func gistListRequest(completionHandler:
+    @escaping ([Gist]?, Error?) -> ()) {
         
         let gistsURL = "gists" //"gists?access_token=" + (StoredData.token ?? "")
         let url = Constants.API.GitHub.baseURL + gistsURL
@@ -21,9 +21,9 @@ class GistService {
             
             switch result {
             case .success(let returnedContentList):
-                completionHandler(returnedContentList)
+                completionHandler(returnedContentList, nil)
             case .failure(let error):
-                ErrorAlertService.showErrorAlert(error: error, viewController: gistListVC)
+                completionHandler(nil, error)
             }
         }
     }
