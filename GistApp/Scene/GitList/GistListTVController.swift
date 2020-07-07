@@ -21,7 +21,12 @@ class GistListTVController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if StoredData.token == nil { presentOAuthVC() }
-        GistService().gistListRequest(gistListVC: self, gistsURL: "gists")
+        GistService().gistListRequest(gistListVC: self) { array in
+            self.gistArray = array
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     //MARK: Present methods
