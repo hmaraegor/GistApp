@@ -10,18 +10,75 @@ import UIKit
 
 class GistViewController: UIViewController {
     
+    
+    @IBAction func updateButton(_ sender: UIButton) {
+        var newGistFile = NewGist(usePublic: false, useFilename: true)
+        newGistFile.newFiles["default_name"]?.content = gistTextView.text
+        let gistId = gist?.id
+        
+        var gistUrl = "gists/" + gistId! + "?access_token=" + (StoredData.token ?? "")
+        postRequest(model: newGistFile, gistUrl: gistUrl)
+    }
+    
+    @IBAction func createButton(_ sender: UIButton) {
+        var newGistFile = NewGist()
+        newGistFile.newFiles["default_name"]?.content = gistTextView.text
+        
+        var gistUrl = "gists?access_token=" + (StoredData.token ?? "")
+        postRequest(model: newGistFile, gistUrl: gistUrl)
+    }
+    
+    func postRequest(model: NewGist, gistUrl: String){
+        let url = Constants.API.GitHub.baseURL + gistUrl
+        
+        NetworkRequestService().getData(model: model, url: url) { (result) in
+            switch result {
+            case .success(let returnedHttpCode):
+                print(returnedHttpCode)
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
+                }
+            }
+        }
+
+    }
+    
+    @IBOutlet var titleLabel: UILabel!
+    
     @IBOutlet private weak var gistTextView: UITextView!
     
     var gist: Gist?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gistTextView.text = "Load file..."
+        
         guard let gist = self.gist else { return }
-        let gistFiles = getFileNames(from: gist)
-        gistTextView.text = gist.files.first?.rawUrl
+        let gistFileNames = getFileNames(from: gist)
+        let gistFiles = gist.files
+        titleLabel.text = gistFileNames.first
+        
+        getFile(url: gistFiles.first?.rawUrl)
     }
     
     func getFileNames(from content: Gist) -> [String] {
         return content.files.map { $0.filename }
+    }
+    
+    func getFile(url: String?) {
+        guard let fileUrl = url else { return }
+        GistFileService().gistListRequest(url: fileUrl) { (file, error) in
+            if file != nil {
+                DispatchQueue.main.async {
+                    self.gistTextView.text = file!
+                }
+            }
+            else if error != nil {
+                DispatchQueue.main.async {
+                    ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
+                }
+            }
+        }
     }
 }

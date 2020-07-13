@@ -6,7 +6,6 @@
 //  Copyright © 2020 Egor Khmara. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class GistService {
@@ -14,7 +13,7 @@ class GistService {
     func gistListRequest(completionHandler:
     @escaping ([Gist]?, Error?) -> ()) {
         
-        let gistsURL = "gists" //"gists?access_token=" + (StoredData.token ?? "")
+        let gistsURL = "gists?access_token=" + (StoredData.token ?? "")
         let url = Constants.API.GitHub.baseURL + gistsURL
         
         NetworkService().getData(url: url) { (result: Result<[Gist], NetworkServiceError>) in

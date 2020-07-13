@@ -1,25 +1,35 @@
 //
-//  NetworkService.swift
-//  iTunesSearchAPI
+//  NetworkRequestService.swift
+//  GistApp
 //
-//  Created by Egor Khmara on 10.06.2020.
+//  Created by Egor on 13/07/2020.
 //  Copyright © 2020 Egor Khmara. All rights reserved.
 //
 
 import Foundation
 
-class NetworkService {
+class NetworkRequestService {
     
-    func getData<T: Codable>(decodingDataType: DataType = .json, url: String, completionHandler:
-        @escaping (Result<T, NetworkServiceError>) -> ()) {
+    func getData<T: Codable>(model: T, url: String, completionHandler:
+        @escaping (Result<Int, NetworkServiceError>) -> ()) {
     
         
-        guard let url = URL(string: url) else { completionHandler(.failure(.badURL))
+        let (encodedData, error) = EncodeService().encodeData(model: model)
+        if error != nil {
+            completionHandler(.failure(.modelEncoding))
+        }
+        guard encodedData != nil else { return }
+        
+        guard let url = URL(string: url) else {
+            completionHandler(.failure(.badURL))
             return
         }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
         
+        request.httpBody = encodedData
         let session = URLSession.shared
-        session.dataTask(with: url) { (data, response, error) in
+        session.dataTask(with: request) { (data, response, error) in
             guard let response = response else {
                 completionHandler(.failure(.noResponse))
                 return }
@@ -35,8 +45,8 @@ class NetworkService {
                 completionHandler(.failure(.badResponse))
                 return
             }
-
-            DecodeService().decodeData(data: data, dataType: decodingDataType, completionHandler: completionHandler)
+            
+            completionHandler(.success(httpResponse.statusCode))
             
             
 

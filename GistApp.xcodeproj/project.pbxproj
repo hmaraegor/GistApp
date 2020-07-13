@@ -29,6 +29,12 @@
 		128D1D632499611B0066E58F /* OAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D622499611B0066E58F /* OAuthService.swift */; };
 		128D1D65249967E50066E58F /* StoredData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D64249967E50066E58F /* StoredData.swift */; };
 		7409047624B30704008AAA9B /* GistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409047524B30704008AAA9B /* GistService.swift */; };
+		7454288F24BC6BB10062A0D2 /* GistFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454288E24BC6BB10062A0D2 /* GistFileService.swift */; };
+		7454289124BC78AA0062A0D2 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289024BC78AA0062A0D2 /* DataType.swift */; };
+		7454289324BC9CA00062A0D2 /* NewGist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289224BC9CA00062A0D2 /* NewGist.swift */; };
+		7454289524BCEF9E0062A0D2 /* DecodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289424BCEF9E0062A0D2 /* DecodeService.swift */; };
+		7454289724BCF2AA0062A0D2 /* EncodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289624BCF2AA0062A0D2 /* EncodeService.swift */; };
+		7454289924BCFB760062A0D2 /* NetworkRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289824BCFB760062A0D2 /* NetworkRequestService.swift */; };
 		78EEBDCD1609E0A493B7965B /* Pods_GistApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF7104C909CD01B055D7529 /* Pods_GistApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +64,12 @@
 		128D1D64249967E50066E58F /* StoredData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredData.swift; sourceTree = "<group>"; };
 		5D3A01C1D3A2C3E00F0D7D6A /* Pods-GistApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistApp.debug.xcconfig"; path = "Target Support Files/Pods-GistApp/Pods-GistApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7409047524B30704008AAA9B /* GistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistService.swift; sourceTree = "<group>"; };
+		7454288E24BC6BB10062A0D2 /* GistFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistFileService.swift; sourceTree = "<group>"; };
+		7454289024BC78AA0062A0D2 /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
+		7454289224BC9CA00062A0D2 /* NewGist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGist.swift; sourceTree = "<group>"; };
+		7454289424BCEF9E0062A0D2 /* DecodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeService.swift; sourceTree = "<group>"; };
+		7454289624BCF2AA0062A0D2 /* EncodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeService.swift; sourceTree = "<group>"; };
+		7454289824BCFB760062A0D2 /* NetworkRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestService.swift; sourceTree = "<group>"; };
 		93B6A5BE2291BFD28B6C4324 /* Pods-GistApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistApp.release.xcconfig"; path = "Target Support Files/Pods-GistApp/Pods-GistApp.release.xcconfig"; sourceTree = "<group>"; };
 		BFF7104C909CD01B055D7529 /* Pods_GistApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GistApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				12115086249BB99F00B9EFB0 /* Gist.swift */,
+				7454289024BC78AA0062A0D2 /* DataType.swift */,
+				7454289224BC9CA00062A0D2 /* NewGist.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,7 +121,11 @@
 				1211507D249BB6A700B9EFB0 /* NetworkServiceError.swift */,
 				128D1D622499611B0066E58F /* OAuthService.swift */,
 				1211507B249BB6A700B9EFB0 /* NetworkService.swift */,
+				7454289824BCFB760062A0D2 /* NetworkRequestService.swift */,
 				7409047524B30704008AAA9B /* GistService.swift */,
+				7454288E24BC6BB10062A0D2 /* GistFileService.swift */,
+				7454289424BCEF9E0062A0D2 /* DecodeService.swift */,
+				7454289624BCF2AA0062A0D2 /* EncodeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -161,8 +179,9 @@
 		1219790F24A227BD009A2365 /* Gist */ = {
 			isa = PBXGroup;
 			children = (
-				1219791224A22843009A2365 /* GistViewController.swift */,
+				7454288D24BC67F00062A0D2 /* View */,
 				1219791024A227DC009A2365 /* Gist.storyboard */,
+				1219791224A22843009A2365 /* GistViewController.swift */,
 			);
 			path = Gist;
 			sourceTree = "<group>";
@@ -209,6 +228,13 @@
 				93B6A5BE2291BFD28B6C4324 /* Pods-GistApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7454288D24BC67F00062A0D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EC4A4C67C547DFBC08BBF096 /* Frameworks */ = {
@@ -339,10 +365,14 @@
 			files = (
 				1211507F249BB6A800B9EFB0 /* NetworkService.swift in Sources */,
 				1219791324A22843009A2365 /* GistViewController.swift in Sources */,
+				7454288F24BC6BB10062A0D2 /* GistFileService.swift in Sources */,
 				1219790824A1F8F0009A2365 /* ImageDownloader.swift in Sources */,
+				7454289924BCFB760062A0D2 /* NetworkRequestService.swift in Sources */,
 				12115081249BB6A800B9EFB0 /* NetworkServiceError.swift in Sources */,
 				7409047624B30704008AAA9B /* GistService.swift in Sources */,
+				7454289724BCF2AA0062A0D2 /* EncodeService.swift in Sources */,
 				1211507E249BB6A800B9EFB0 /* GistListCell.swift in Sources */,
+				7454289124BC78AA0062A0D2 /* DataType.swift in Sources */,
 				128D1D512497E4F40066E58F /* OAuthViewController.swift in Sources */,
 				128D1D4D2497E4F40066E58F /* AppDelegate.swift in Sources */,
 				128D1D632499611B0066E58F /* OAuthService.swift in Sources */,
@@ -350,8 +380,10 @@
 				12115087249BB99F00B9EFB0 /* Gist.swift in Sources */,
 				12115080249BB6A800B9EFB0 /* ErrorAlertService.swift in Sources */,
 				12115077249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift in Sources */,
+				7454289524BCEF9E0062A0D2 /* DecodeService.swift in Sources */,
 				128D1D65249967E50066E58F /* StoredData.swift in Sources */,
 				12115079249B8EFA00B9EFB0 /* GistListTVController.swift in Sources */,
+				7454289324BC9CA00062A0D2 /* NewGist.swift in Sources */,
 				128D1D61249953E10066E58F /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

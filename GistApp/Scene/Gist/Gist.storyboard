@@ -15,27 +15,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Gist text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oeb-UJ-FX2">
-                                <rect key="frame" x="20" y="44" width="374" height="374"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Gist text" translatesAutoresizingMaskIntoConstraints="NO" id="oeb-UJ-FX2">
+                                <rect key="frame" x="20" y="98" width="374" height="374"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.051413952464788734" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="oeb-UJ-FX2" secondAttribute="width" multiplier="1:1" id="1o8-Fs-aCx"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae7-wd-QWu">
+                                <rect key="frame" x="20" y="54" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSk-8f-NQv">
+                                <rect key="frame" x="182.5" y="506" width="49" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="createButton:" destination="b7c-mm-k9K" eventType="touchUpInside" id="xqe-gx-XVu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmd-xa-eR6">
+                                <rect key="frame" x="249" y="506" width="54" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateButton:" destination="b7c-mm-k9K" eventType="touchUpInside" id="KD7-nX-8D8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="oeb-UJ-FX2" firstAttribute="leading" secondItem="SJ0-A5-nSu" secondAttribute="leading" constant="20" id="6ua-lF-J6h"/>
-                            <constraint firstItem="oeb-UJ-FX2" firstAttribute="top" secondItem="SJ0-A5-nSu" secondAttribute="top" id="LUu-wk-VfA"/>
+                            <constraint firstItem="xSk-8f-NQv" firstAttribute="top" secondItem="oeb-UJ-FX2" secondAttribute="bottom" constant="34" id="DsH-fI-KT3"/>
+                            <constraint firstItem="vmd-xa-eR6" firstAttribute="top" secondItem="oeb-UJ-FX2" secondAttribute="bottom" constant="34" id="Hap-My-tna"/>
+                            <constraint firstItem="oeb-UJ-FX2" firstAttribute="top" secondItem="Ae7-wd-QWu" secondAttribute="bottom" constant="20" id="Jhf-tu-gGW"/>
                             <constraint firstItem="SJ0-A5-nSu" firstAttribute="trailing" secondItem="oeb-UJ-FX2" secondAttribute="trailing" constant="20" id="asF-8w-ZHZ"/>
+                            <constraint firstItem="SJ0-A5-nSu" firstAttribute="trailing" secondItem="Ae7-wd-QWu" secondAttribute="trailing" constant="20" id="dIp-l1-4te"/>
+                            <constraint firstItem="vmd-xa-eR6" firstAttribute="leading" secondItem="xSk-8f-NQv" secondAttribute="trailing" constant="17.5" id="fW5-jQ-0Z4"/>
+                            <constraint firstItem="Ae7-wd-QWu" firstAttribute="leading" secondItem="SJ0-A5-nSu" secondAttribute="leading" constant="20" id="nIs-Sd-ZjD"/>
+                            <constraint firstItem="xSk-8f-NQv" firstAttribute="centerX" secondItem="xoz-N2-vaF" secondAttribute="centerX" id="o47-Yo-tlG"/>
+                            <constraint firstItem="Ae7-wd-QWu" firstAttribute="top" secondItem="SJ0-A5-nSu" secondAttribute="top" constant="10" id="uvw-WD-EEj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SJ0-A5-nSu"/>
                     </view>
                     <connections>
                         <outlet property="gistTextView" destination="oeb-UJ-FX2" id="FIX-9j-8Fo"/>
+                        <outlet property="titleLabel" destination="Ae7-wd-QWu" id="Pvw-L9-6hj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYT-8S-czp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
