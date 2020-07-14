@@ -12,19 +12,27 @@ class GistViewController: UIViewController {
     
     
     @IBAction func updateButton(_ sender: UIButton) {
+        update()
+    }
+    
+    @IBAction func createButton(_ sender: UIButton) {
+        create()
+    }
+    
+    func create() {
+        var newGistFile = NewGist()
+        newGistFile.newFiles["default_name"]?.content = gistTextView.text
+        
+        var gistUrl = "gists?access_token=" + (StoredData.token ?? "")
+        postRequest(model: newGistFile, gistUrl: gistUrl)
+    }
+    
+    func update() {
         var newGistFile = NewGist(usePublic: false, useFilename: true)
         newGistFile.newFiles["default_name"]?.content = gistTextView.text
         let gistId = gist?.id
         
         var gistUrl = "gists/" + gistId! + "?access_token=" + (StoredData.token ?? "")
-        postRequest(model: newGistFile, gistUrl: gistUrl)
-    }
-    
-    @IBAction func createButton(_ sender: UIButton) {
-        var newGistFile = NewGist()
-        newGistFile.newFiles["default_name"]?.content = gistTextView.text
-        
-        var gistUrl = "gists?access_token=" + (StoredData.token ?? "")
         postRequest(model: newGistFile, gistUrl: gistUrl)
     }
     

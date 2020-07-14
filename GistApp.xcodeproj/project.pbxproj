@@ -35,6 +35,8 @@
 		7454289524BCEF9E0062A0D2 /* DecodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289424BCEF9E0062A0D2 /* DecodeService.swift */; };
 		7454289724BCF2AA0062A0D2 /* EncodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289624BCF2AA0062A0D2 /* EncodeService.swift */; };
 		7454289924BCFB760062A0D2 /* NetworkRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289824BCFB760062A0D2 /* NetworkRequestService.swift */; };
+		7454289B24BD75B50062A0D2 /* FileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289A24BD75B50062A0D2 /* FileView.swift */; };
+		7454289D24BD75D00062A0D2 /* FileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7454289C24BD75D00062A0D2 /* FileView.xib */; };
 		78EEBDCD1609E0A493B7965B /* Pods_GistApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF7104C909CD01B055D7529 /* Pods_GistApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,8 @@
 		7454289424BCEF9E0062A0D2 /* DecodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeService.swift; sourceTree = "<group>"; };
 		7454289624BCF2AA0062A0D2 /* EncodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeService.swift; sourceTree = "<group>"; };
 		7454289824BCFB760062A0D2 /* NetworkRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestService.swift; sourceTree = "<group>"; };
+		7454289A24BD75B50062A0D2 /* FileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileView.swift; sourceTree = "<group>"; };
+		7454289C24BD75D00062A0D2 /* FileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileView.xib; sourceTree = "<group>"; };
 		93B6A5BE2291BFD28B6C4324 /* Pods-GistApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistApp.release.xcconfig"; path = "Target Support Files/Pods-GistApp/Pods-GistApp.release.xcconfig"; sourceTree = "<group>"; };
 		BFF7104C909CD01B055D7529 /* Pods_GistApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GistApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -233,6 +237,8 @@
 		7454288D24BC67F00062A0D2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7454289A24BD75B50062A0D2 /* FileView.swift */,
+				7454289C24BD75D00062A0D2 /* FileView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -305,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7454289D24BD75D00062A0D2 /* FileView.xib in Resources */,
 				1211509624A1025E00B9EFB0 /* OAuth.storyboard in Resources */,
 				1219791124A227DC009A2365 /* Gist.storyboard in Resources */,
 				128D1D592497E4F60066E58F /* LaunchScreen.storyboard in Resources */,
@@ -369,6 +376,7 @@
 				1219790824A1F8F0009A2365 /* ImageDownloader.swift in Sources */,
 				7454289924BCFB760062A0D2 /* NetworkRequestService.swift in Sources */,
 				12115081249BB6A800B9EFB0 /* NetworkServiceError.swift in Sources */,
+				7454289B24BD75B50062A0D2 /* FileView.swift in Sources */,
 				7409047624B30704008AAA9B /* GistService.swift in Sources */,
 				7454289724BCF2AA0062A0D2 /* EncodeService.swift in Sources */,
 				1211507E249BB6A800B9EFB0 /* GistListCell.swift in Sources */,
