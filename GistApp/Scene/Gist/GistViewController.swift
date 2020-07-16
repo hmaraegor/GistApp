@@ -21,7 +21,7 @@ class GistViewController: UIViewController {
     
     func create() {
         var newGistFile = NewGist()
-        newGistFile.newFiles["default_name"]?.content = gistTextView.text
+        newGistFile.files["default_name"]?.content = gistTextView.text
         
         var gistUrl = "gists?access_token=" + (StoredData.token ?? "")
         postRequest(model: newGistFile, gistUrl: gistUrl)
@@ -29,8 +29,10 @@ class GistViewController: UIViewController {
     
     func update() {
         var newGistFile = NewGist(usePublic: false, useFilename: true)
-        newGistFile.newFiles["default_name"]?.content = gistTextView.text
+        let fileName = titleLabel.text ?? "default_name"
+        newGistFile.files[fileName]?.content = gistTextView.text
         let gistId = gist?.id
+        newGistFile.files[fileName]?.filename = "new_file_name"
         
         var gistUrl = "gists/" + gistId! + "?access_token=" + (StoredData.token ?? "")
         postRequest(model: newGistFile, gistUrl: gistUrl)
@@ -39,7 +41,7 @@ class GistViewController: UIViewController {
     func postRequest(model: NewGist, gistUrl: String){
         let url = Constants.API.GitHub.baseURL + gistUrl
         
-        NetworkRequestService().getData(model: model, url: url) { (result) in
+        NetworkRequestService().postData(model: model, url: url) { (result) in
             switch result {
             case .success(let returnedHttpCode):
                 print(returnedHttpCode)

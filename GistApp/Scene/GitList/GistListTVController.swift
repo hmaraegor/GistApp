@@ -45,10 +45,19 @@ class GistListTVController: UITableViewController {
     }
     
     func presentGistController(with gist: Gist) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Gist", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "GistVC")
-        (vc as? GistViewController)?.gist = gist
-        navigationController?.pushViewController(vc, animated: true)
+        
+        if Bool(1) {
+            let storyboard: UIStoryboard = UIStoryboard(name: "GistV2", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "GistVCv2")
+            (vc as? GistViewControllerV2)?.gist = gist
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Gist", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "GistVC")
+            (vc as? GistViewController)?.gist = gist
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     //MARK: TableView methods

@@ -10,6 +10,8 @@ import Foundation
 
 class NetworkService {
     
+    private let decodeService = DecodeService()
+    
     func getData<T: Codable>(decodingDataType: DataType = .json, url: String, completionHandler:
         @escaping (Result<T, NetworkServiceError>) -> ()) {
     
@@ -36,8 +38,7 @@ class NetworkService {
                 return
             }
 
-            DecodeService().decodeData(data: data, dataType: decodingDataType, completionHandler: completionHandler)
-            
+            self.decodeService.decodeData(data: data, dataType: decodingDataType, completionHandler: completionHandler)
             
 
         }.resume()

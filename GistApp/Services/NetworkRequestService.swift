@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkRequestService {
     
-    func getData<T: Codable>(model: T, url: String, completionHandler:
+    func postData<T: Codable>(model: T, url: String, completionHandler:
         @escaping (Result<Int, NetworkServiceError>) -> ()) {
     
         
