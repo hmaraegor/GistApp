@@ -25,14 +25,18 @@ struct NewGist: Codable {
         case files
     }
     
-    init(operatoin: FileOperation, isPublic: Bool, newName: String, description: String, content: String) {
-        self.description = description
+    init(operatoin: FileOperation, isPublic: Bool, newName: String, description: String?, content: String) {
+        if let description = description {
+            self.description = description
+        }
         self.isPublic = isPublic
         files = [newName : UpdateFile(operatoin: operatoin, content: content)]
     }
     
-    init(operatoin: FileOperation, currentName: String, updateName: String, description: String, content: String) {
-        self.description = description
+    init(operatoin: FileOperation, currentName: String, updateName: String, description: String?, content: String) {
+        if let description = description {
+            self.description = description
+        }
         files = [currentName : UpdateFile(operatoin: operatoin, updateName: updateName, content: content)]
     }
     

@@ -12,7 +12,7 @@ class NetworkService {
     
     private let decodeService = DecodeService()
     
-    func getData<T: Codable>(decodingDataType: DataType = .json, url: String, completionHandler:
+    func performHTTPRequest<T: Codable>(decodingDataType: DataType = .json, url: String, completionHandler:
         @escaping (Result<T, NetworkServiceError>) -> ()) {
     
         

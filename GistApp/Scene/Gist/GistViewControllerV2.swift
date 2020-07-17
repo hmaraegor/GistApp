@@ -14,6 +14,8 @@ protocol FileViewDelegate {
     func hideViews(apartFrom view: FileView)
     func showViews()
     func isNewFileView(_ fileView: FileView) -> Bool
+    func viewWraping()
+    func viewUnwraping(fileView: FileView)
 }
 
 class GistViewControllerV2: UIViewController, FileViewDelegate {
@@ -23,6 +25,12 @@ class GistViewControllerV2: UIViewController, FileViewDelegate {
     var currentView: FileView?
     var newFileView: FileView!
     
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
+    
+    @IBOutlet var indicatorLabel: UILabel!
+    
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet var scrollView: UIScrollView!
     
     @IBOutlet var stackView: UIStackView!
@@ -31,6 +39,8 @@ class GistViewControllerV2: UIViewController, FileViewDelegate {
         super.viewDidLoad()
         guard let gist = self.gist else { return }
         initFileViews()
+        indicatorView.isHidden = true
+        
     }
 
     func initFileViews() {
@@ -47,13 +57,24 @@ class GistViewControllerV2: UIViewController, FileViewDelegate {
         fileViewsArray.append(newFileView)
         newFileView.delegate = self
         newFileView.wrapButton.setTitle("ᐊ Create", for: .normal)
+        newFileView.titleTextField.text = "New file"
+        newFileView.titleTextField.textColor = .gray
+        newFileView.deleteButton.isHidden = true
+        
+        
         self.stackView.addArrangedSubview(newFileView)
+        
+        newFileView.clipsToBounds = true
+        newFileView.layer.cornerRadius = 10
+        newFileView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        
     }
     
     func getFile(url: String?, fileView: FileView) {
         guard let fileUrl = url else { return }
         
-        GistFileService().gistListRequest(url: fileUrl) { (fileText, error) in
+        GistFileService().getGistFiles(url: fileUrl) { (fileText, error) in
             if fileText != nil {
                 DispatchQueue.main.async {
                     fileView.fileTextView.text = fileText!
@@ -85,16 +106,38 @@ class GistViewControllerV2: UIViewController, FileViewDelegate {
         }
     }
     
+    func viewWraping() {
+        guard !indicatorView.isHidden else { return }
+        indicatorView.isHidden = true
+        guard activityIndicator.isAnimating else { return }
+        activityIndicator.stopAnimating()
+    }
+    
+    func viewUnwraping(fileView: FileView) {
+        if fileView == newFileView {
+            fileView.titleTextField.textColor = .black
+        }
+    }
+    
     func create(fileView: FileView) {
+        indicatorView.isHidden = false
+        activityIndicator.startAnimating()
+        indicatorLabel.text = "Saving"
+        
         let fileName = fileView.titleTextField.text ?? "default name/"
         let content = fileView.fileTextView.text ?? "default text/"
-        let newGistFile = NewGist(operatoin: .create, isPublic: true, newName: fileName, description: "descr/", content: content)
+        let description = gist?.description
+        let newGistFile = NewGist(operatoin: .create, isPublic: true, newName: fileName, description: description, content: content)
         
         let gistUrl = "gists?access_token=" + (StoredData.token ?? "")
         postRequest(model: newGistFile, gistUrl: gistUrl)
     }
     
     func delete(fileView: FileView) {
+        indicatorView.isHidden = false
+        activityIndicator.startAnimating()
+        indicatorLabel.text = "Deleting"
+        
         var fileIndex: Int = 0
         var currentName = ""
         for (index, view) in fileViewsArray.enumerated() {
@@ -103,12 +146,7 @@ class GistViewControllerV2: UIViewController, FileViewDelegate {
                 break
             }
         }
-//        if (gist?.files.count)! <= fileIndex {
-//            currentName = updateFileName
-//        }
-//        else {
-            currentName = ((gist?.files[fileIndex].filename)!)
-//        }
+        currentName = ((gist?.files[fileIndex].filename)!)
         let newGistFile = NewGist(operatoin: .delete, currentName: currentName)
         
         let gistId = gist?.id
@@ -118,6 +156,10 @@ class GistViewControllerV2: UIViewController, FileViewDelegate {
     }
     
     func update(fileView: FileView) {
+        indicatorView.isHidden = false
+        activityIndicator.startAnimating()
+        indicatorLabel.text = "Saving"
+        
         var fileIndex: Int = 0
         let updateFileName = fileView.titleTextField.text ?? "default name/"
         var currentName = ""
@@ -136,9 +178,9 @@ class GistViewControllerV2: UIViewController, FileViewDelegate {
             currentName = ((gist?.files[fileIndex].filename)!)
         }
         
-        //let currentName = (gist?.files.first?.filename)!
         let content = fileView.fileTextView.text ?? "default text/"
-        let newGistFile = NewGist(operatoin: .update, currentName: currentName, updateName: updateFileName, description: "descr/", content: content)
+        let description = gist?.description
+        let newGistFile = NewGist(operatoin: .update, currentName: currentName, updateName: updateFileName, description: description, content: content)
         
         let gistId = gist?.id
         
@@ -149,14 +191,20 @@ class GistViewControllerV2: UIViewController, FileViewDelegate {
     func postRequest(model: NewGist, gistUrl: String){
         let url = Constants.API.GitHub.baseURL + gistUrl
         
-        NetworkRequestService().postData(model: model, url: url) { (result) in
-            switch result {
-            case .success(let returnedHttpCode):
-                print(returnedHttpCode)
-            case .failure(let error):
+        GistUpdateService().putGist(model: model, gistId: gist?.id) { (code, error) in
+            if code != nil {
+                print(code)
+            }
+            else if error != nil {
                 DispatchQueue.main.async {
-                    ErrorAlertService.showErrorAlert(error: error, viewController: self)
+                    ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
                 }
+            }
+            DispatchQueue.main.async {
+                guard !self.indicatorView.isHidden else { return }
+                self.indicatorView.isHidden = true
+                guard self.activityIndicator.isAnimating else { return }
+                self.activityIndicator.stopAnimating()
             }
         }
 

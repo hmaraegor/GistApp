@@ -9,15 +9,14 @@
 import UIKit
 
 class GistService {
-    
-    func gistListRequest(completionHandler:
-    @escaping ([Gist]?, Error?) -> ()) {
+    private let networkService = NetworkService2<[Gist]>()
         
+    func getGists(completionHandler:
+    @escaping ([Gist]?, Error?) -> ()) {
         let gistsURL = "gists?access_token=" + (StoredData.token ?? "")
         let url = Constants.API.GitHub.baseURL + gistsURL
         
-        NetworkService().getData(url: url) { (result: Result<[Gist], NetworkServiceError>) in
-            
+        var completion = { (result: Result<[Gist], NetworkServiceError>) in
             switch result {
             case .success(let returnedContentList):
                 completionHandler(returnedContentList, nil)
@@ -25,5 +24,7 @@ class GistService {
                 completionHandler(nil, error)
             }
         }
+        networkService.get(url: url, decodingDataType: .json, completion)
+        //NetworkService().performHTTPRequest(url: url, completionHandler: completion)
     }
 }

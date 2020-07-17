@@ -21,7 +21,11 @@ class GistListTVController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if StoredData.token == nil { presentOAuthVC() }
-        GistService().gistListRequest() { (array, error) in
+        fetchGistList()
+    }
+    
+    func fetchGistList() {
+        GistService().getGists() { (array, error) in
             if array != nil {
                 self.gistArray = array!
             }
@@ -51,12 +55,15 @@ class GistListTVController: UITableViewController {
             let vc = storyboard.instantiateViewController(withIdentifier: "GistVCv2")
             (vc as? GistViewControllerV2)?.gist = gist
             navigationController?.pushViewController(vc, animated: true)
+            //fetchGistList()
         }
         else {
             let storyboard: UIStoryboard = UIStoryboard(name: "Gist", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "GistVC")
             (vc as? GistViewController)?.gist = gist
             navigationController?.pushViewController(vc, animated: true)
+            //navigationController?.navigationBar.backItem?.backBarButtonItem?.action
+            
         }
     }
     
@@ -85,5 +92,16 @@ class GistListTVController: UITableViewController {
         presentGistController(with: gistArray[indexPath.row])
     }
     
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            gistArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
 }

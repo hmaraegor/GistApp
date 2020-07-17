@@ -41,16 +41,23 @@ class GistViewController: UIViewController {
     func postRequest(model: NewGist, gistUrl: String){
         let url = Constants.API.GitHub.baseURL + gistUrl
         
-        NetworkRequestService().postData(model: model, url: url) { (result) in
-            switch result {
-            case .success(let returnedHttpCode):
-                print(returnedHttpCode)
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
-                }
+        GistUpdateService().putGist(model: model, gistId: gist?.id) { (code, error) in
+            if code != nil {
+                print(code)
             }
+            
         }
+        
+//        NetworkRequestService().postData(model: model, url: url) { (result) in
+//            switch result {
+//            case .success(let returnedHttpCode):
+//                print(returnedHttpCode)
+//            case .failure(let error):
+//                DispatchQueue.main.async {
+//                    ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
+//                }
+//            }
+//        }
 
     }
     
@@ -78,7 +85,7 @@ class GistViewController: UIViewController {
     
     func getFile(url: String?) {
         guard let fileUrl = url else { return }
-        GistFileService().gistListRequest(url: fileUrl) { (file, error) in
+        GistFileService().getGistFiles(url: fileUrl) { (file, error) in
             if file != nil {
                 DispatchQueue.main.async {
                     self.gistTextView.text = file!
