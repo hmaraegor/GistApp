@@ -189,7 +189,6 @@ class GistViewControllerV2: UIViewController, FileViewDelegate {
     }
     
     func postRequest(model: NewGist, gistUrl: String){
-        let url = Constants.API.GitHub.baseURL + gistUrl
         
         GistUpdateService().putGist(model: model, gistId: gist?.id) { (code, error) in
             if code != nil {

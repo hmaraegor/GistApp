@@ -55,15 +55,12 @@ class GistListTVController: UITableViewController {
             let vc = storyboard.instantiateViewController(withIdentifier: "GistVCv2")
             (vc as? GistViewControllerV2)?.gist = gist
             navigationController?.pushViewController(vc, animated: true)
-            //fetchGistList()
         }
         else {
             let storyboard: UIStoryboard = UIStoryboard(name: "Gist", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "GistVC")
             (vc as? GistViewController)?.gist = gist
             navigationController?.pushViewController(vc, animated: true)
-            //navigationController?.navigationBar.backItem?.backBarButtonItem?.action
-            
         }
     }
     
@@ -92,14 +89,24 @@ class GistListTVController: UITableViewController {
         presentGistController(with: gistArray[indexPath.row])
     }
     
+    //Do I need it?
 //    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 //        return true
 //    }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let gistId = gistArray[indexPath.row].id
             gistArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            GistDeleteService().getGists(gistId: gistId) { (code, error) in
+                if code != nil {
+                    print(code)
+                }
+                else if error != nil {
+                    ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
+                }
+            }
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }

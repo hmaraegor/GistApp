@@ -9,7 +9,7 @@
 import UIKit
 
 class GistFileService {
-    private let networkService = NetworkService2<String>()
+    private let networkService = NetworkService<String>()
     
     
     func getGistFiles(url: String, completionHandler:

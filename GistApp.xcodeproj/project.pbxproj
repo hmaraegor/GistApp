@@ -31,6 +31,9 @@
 		7409047624B30704008AAA9B /* GistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7409047524B30704008AAA9B /* GistService.swift */; };
 		7441797724C07034002D39A0 /* IBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441797624C07034002D39A0 /* IBExtension.swift */; };
 		7441797924C1E901002D39A0 /* GistUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441797824C1E901002D39A0 /* GistUpdateService.swift */; };
+		7441797C24C1F3D0002D39A0 /* GistDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441797B24C1F3D0002D39A0 /* GistDeleteService.swift */; };
+		7441797E24C207EA002D39A0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441797D24C207EA002D39A0 /* StringExtension.swift */; };
+		7441798024C2081F002D39A0 /* UIViewExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441797F24C2081F002D39A0 /* UIViewExtension .swift */; };
 		7454288F24BC6BB10062A0D2 /* GistFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454288E24BC6BB10062A0D2 /* GistFileService.swift */; };
 		7454289124BC78AA0062A0D2 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289024BC78AA0062A0D2 /* DataType.swift */; };
 		7454289324BC9CA00062A0D2 /* NewGist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289224BC9CA00062A0D2 /* NewGist.swift */; };
@@ -71,6 +74,9 @@
 		7409047524B30704008AAA9B /* GistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistService.swift; sourceTree = "<group>"; };
 		7441797624C07034002D39A0 /* IBExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBExtension.swift; sourceTree = "<group>"; };
 		7441797824C1E901002D39A0 /* GistUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistUpdateService.swift; sourceTree = "<group>"; };
+		7441797B24C1F3D0002D39A0 /* GistDeleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDeleteService.swift; sourceTree = "<group>"; };
+		7441797D24C207EA002D39A0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		7441797F24C2081F002D39A0 /* UIViewExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewExtension .swift"; sourceTree = "<group>"; };
 		7454288E24BC6BB10062A0D2 /* GistFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistFileService.swift; sourceTree = "<group>"; };
 		7454289024BC78AA0062A0D2 /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
 		7454289224BC9CA00062A0D2 /* NewGist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGist.swift; sourceTree = "<group>"; };
@@ -101,6 +107,8 @@
 			children = (
 				12115076249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift */,
 				7441797624C07034002D39A0 /* IBExtension.swift */,
+				7441797D24C207EA002D39A0 /* StringExtension.swift */,
+				7441797F24C2081F002D39A0 /* UIViewExtension .swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -247,6 +255,7 @@
 				7409047524B30704008AAA9B /* GistService.swift */,
 				7454288E24BC6BB10062A0D2 /* GistFileService.swift */,
 				7441797824C1E901002D39A0 /* GistUpdateService.swift */,
+				7441797B24C1F3D0002D39A0 /* GistDeleteService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -393,6 +402,7 @@
 				7454288F24BC6BB10062A0D2 /* GistFileService.swift in Sources */,
 				1219790824A1F8F0009A2365 /* ImageDownloader.swift in Sources */,
 				12115081249BB6A800B9EFB0 /* NetworkServiceError.swift in Sources */,
+				7441797E24C207EA002D39A0 /* StringExtension.swift in Sources */,
 				7454289B24BD75B50062A0D2 /* FileView.swift in Sources */,
 				7409047624B30704008AAA9B /* GistService.swift in Sources */,
 				7441797724C07034002D39A0 /* IBExtension.swift in Sources */,
@@ -406,7 +416,9 @@
 				128D1D632499611B0066E58F /* OAuthService.swift in Sources */,
 				128D1D4F2497E4F40066E58F /* SceneDelegate.swift in Sources */,
 				12115087249BB99F00B9EFB0 /* Gist.swift in Sources */,
+				7441798024C2081F002D39A0 /* UIViewExtension .swift in Sources */,
 				12115080249BB6A800B9EFB0 /* ErrorAlertService.swift in Sources */,
+				7441797C24C1F3D0002D39A0 /* GistDeleteService.swift in Sources */,
 				12115077249A8E3B00B9EFB0 /* OAuth2SwiftExtension.swift in Sources */,
 				7454289524BCEF9E0062A0D2 /* DecodeService.swift in Sources */,
 				128D1D65249967E50066E58F /* StoredData.swift in Sources */,

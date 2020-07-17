@@ -8,9 +8,10 @@
 
 import Foundation
 
-class NetworkService2<T: Codable> {
+class NetworkService<T: Codable> {
+    
     typealias Completion = (Result<T, NetworkServiceError>) -> ()
-    var decodingDataType: DataType?
+    private var decodingDataType: DataType?
     
     func get(url: String, decodingDataType: DataType, _ completion: @escaping Completion) {
         self.decodingDataType = decodingDataType
@@ -28,6 +29,10 @@ class NetworkService2<T: Codable> {
         performHTTPRequest(url: url, method: "PUT", data: nil, params: nil, completion)
     }
     
+    func delete(url: String, _ completion: @escaping Completion) {
+        performHTTPRequest(url: url, method: "DELETE", data: nil, params: nil, completion)
+    }
+    
     // MARK: - Private
     private func performHTTPRequest(url: String, method: String, data: Data?, params: [String: Any]?, _ completion: @escaping Completion) {
         
@@ -39,7 +44,6 @@ class NetworkService2<T: Codable> {
         urlRequest.httpMethod = method
         urlRequest.httpBody = data
         
-        // add params
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard let response = response else {
                 completion(.failure(.noResponse))

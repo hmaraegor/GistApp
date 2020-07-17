@@ -9,7 +9,7 @@
 import UIKit
 
 class GistService {
-    private let networkService = NetworkService2<[Gist]>()
+    private let networkService = NetworkService<[Gist]>()
         
     func getGists(completionHandler:
     @escaping ([Gist]?, Error?) -> ()) {

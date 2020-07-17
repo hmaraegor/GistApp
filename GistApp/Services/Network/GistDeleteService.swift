@@ -1,19 +1,18 @@
 //
-//  GistUpdateService.swift
+//  GistDeleteService.swift
 //  GistApp
 //
 //  Created by Egor on 17/07/2020.
 //  Copyright © 2020 Egor Khmara. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class GistUpdateService {
+class GistDeleteService {
     private let networkService = NetworkService<Int>()
-    
-    func putGist<T: Codable>(model: T, gistId: String?, completionHandler:
-    @escaping (Int?, Error?) -> ()) {
         
+    func getGists(gistId: String?, completionHandler:
+    @escaping (Int?, Error?) -> ()) {
         let gistUrl = "gists/" + gistId! + "?access_token=" + (StoredData.token ?? "")
         let url = Constants.API.GitHub.baseURL + gistUrl
         
@@ -25,8 +24,6 @@ class GistUpdateService {
                 completionHandler(nil, error)
             }
         }
-        
-        //NetworkService().performHTTPRequest(decodingDataType: .string, url: url, completionHandler: completion)
-        networkService.post(url: url, model: model, completion: completion)
+        networkService.delete(url: url, completion)
     }
 }
