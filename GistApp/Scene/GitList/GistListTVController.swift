@@ -50,18 +50,10 @@ class GistListTVController: UITableViewController {
     
     func presentGistController(with gist: Gist) {
         
-        if Bool(1) {
-            let storyboard: UIStoryboard = UIStoryboard(name: "GistV2", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "GistVCv2")
-            (vc as? GistViewControllerV2)?.gist = gist
-            navigationController?.pushViewController(vc, animated: true)
-        }
-        else {
-            let storyboard: UIStoryboard = UIStoryboard(name: "Gist", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "Gist", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "GistVC")
             (vc as? GistViewController)?.gist = gist
             navigationController?.pushViewController(vc, animated: true)
-        }
     }
     
     //MARK: TableView methods
@@ -99,7 +91,7 @@ class GistListTVController: UITableViewController {
             let gistId = gistArray[indexPath.row].id
             gistArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            GistDeleteService().getGists(gistId: gistId) { (code, error) in
+            GistDeleteService().deleteGist(gistId: gistId) { (code, error) in
                 if code != nil {
                     print(code)
                 }

@@ -8,6 +8,17 @@
 
 import UIKit
 
+protocol FileViewDelegate {
+    func create(fileView: FileView)
+    func update(fileView: FileView)
+    func delete(fileView: FileView)
+    func hideViews(apartFrom view: FileView)
+    func showViews()
+    func isNewFileView(_ fileView: FileView) -> Bool
+    func viewWraping()
+    func viewUnwraping(fileView: FileView)
+}
+
 class FileView: UIView {
     
     @IBOutlet var textViewHeightConstraint: NSLayoutConstraint!
@@ -23,7 +34,7 @@ class FileView: UIView {
     
     @IBOutlet var deleteButton: UIButton!
     
-    var delegate: GistViewControllerV2?
+    var delegate: FileViewDelegate? //GistViewController?
     var isUnwrapped: Bool = false
     
     @IBAction func titleStartEditing(_ sender: UITextField) {
@@ -72,9 +83,9 @@ class FileView: UIView {
     }
     
     func setAtrText(_ string: String, for button: UIButton, withSize: CGFloat) {
-        let amountText = NSMutableAttributedString.init(string: string)
-        amountText.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: withSize), NSAttributedString.Key.foregroundColor: UIColor.gray,
-            NSAttributedString.Key.strokeColor: UIColor.black],
+        let amountText = NSMutableAttributedString(string: string)
+        amountText.setAttributes([.font: UIFont.systemFont(ofSize: withSize), .foregroundColor: UIColor.gray,
+            .strokeColor: UIColor.black],
                                  range: NSMakeRange(0, 1))
         button.setTitle(string, for: .normal)
         button.titleLabel!.attributedText = amountText

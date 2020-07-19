@@ -9,7 +9,7 @@
 import UIKit
 
 class GistFileService {
-    private let networkService = NetworkService<String>()
+    private let networkService = NetworkService()//<String>()
     
     
     func getGistFiles(url: String, completionHandler:
@@ -25,6 +25,5 @@ class GistFileService {
         }
         
         networkService.get(url: url, decodingDataType: .string, completion)
-        //NetworkService().performHTTPRequest(decodingDataType: .string, url: url, completionHandler: completion)
     }
 }

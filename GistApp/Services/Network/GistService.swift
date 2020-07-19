@@ -9,7 +9,7 @@
 import UIKit
 
 class GistService {
-    private let networkService = NetworkService<[Gist]>()
+    private let networkService = NetworkService()//<[Gist]>()
         
     func getGists(completionHandler:
     @escaping ([Gist]?, Error?) -> ()) {
@@ -25,6 +25,5 @@ class GistService {
             }
         }
         networkService.get(url: url, decodingDataType: .json, completion)
-        //NetworkService().performHTTPRequest(url: url, completionHandler: completion)
     }
 }

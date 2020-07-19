@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum FileOperation {
-    case create
-    case update
-    case delete
-}
-
 struct NewGist: Codable {
     var description: String?
     var isPublic: Bool?
@@ -25,22 +19,22 @@ struct NewGist: Codable {
         case files
     }
     
-    init(operatoin: FileOperation, isPublic: Bool, newName: String, description: String?, content: String) {
+    init(isPublic: Bool, newName: String, description: String?, content: String) {
         if let description = description {
             self.description = description
         }
         self.isPublic = isPublic
-        files = [newName : UpdateFile(operatoin: operatoin, content: content)]
+        files = [newName : UpdateFile(content: content)]
     }
     
-    init(operatoin: FileOperation, currentName: String, updateName: String, description: String?, content: String) {
+    init(currentName: String, updateName: String, description: String?, content: String) {
         if let description = description {
             self.description = description
         }
-        files = [currentName : UpdateFile(operatoin: operatoin, updateName: updateName, content: content)]
+        files = [currentName : UpdateFile(updateName: updateName, content: content)]
     }
     
-    init(operatoin: FileOperation, currentName: String){
+    init(currentName: String){
         files = [currentName : UpdateFile()]
     }
     
@@ -66,11 +60,11 @@ struct UpdateFile: Codable {
         
     }
     
-    init(operatoin: FileOperation, content: String) {
+    init(content: String) {
         self.content = content
     }
     
-    init(operatoin: FileOperation, updateName: String, content: String) {
+    init(updateName: String, content: String) {
         self.content = content
         filename = updateName
     }

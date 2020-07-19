@@ -18,8 +18,6 @@
 		1211509424A0D95B00B9EFB0 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1211509324A0D95B00B9EFB0 /* CustomCell.xib */; };
 		1211509624A1025E00B9EFB0 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1211508E249E1ABD00B9EFB0 /* OAuth.storyboard */; };
 		1219790824A1F8F0009A2365 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1219790624A1F686009A2365 /* ImageDownloader.swift */; };
-		1219791124A227DC009A2365 /* Gist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1219791024A227DC009A2365 /* Gist.storyboard */; };
-		1219791324A22843009A2365 /* GistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1219791224A22843009A2365 /* GistViewController.swift */; };
 		128D1D4D2497E4F40066E58F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D4C2497E4F40066E58F /* AppDelegate.swift */; };
 		128D1D4F2497E4F40066E58F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D4E2497E4F40066E58F /* SceneDelegate.swift */; };
 		128D1D512497E4F40066E58F /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D1D502497E4F40066E58F /* OAuthViewController.swift */; };
@@ -34,6 +32,7 @@
 		7441797C24C1F3D0002D39A0 /* GistDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441797B24C1F3D0002D39A0 /* GistDeleteService.swift */; };
 		7441797E24C207EA002D39A0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441797D24C207EA002D39A0 /* StringExtension.swift */; };
 		7441798024C2081F002D39A0 /* UIViewExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441797F24C2081F002D39A0 /* UIViewExtension .swift */; };
+		7441798324C4C9AA002D39A0 /* GistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441798224C4C9AA002D39A0 /* GistViewController.swift */; };
 		7454288F24BC6BB10062A0D2 /* GistFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454288E24BC6BB10062A0D2 /* GistFileService.swift */; };
 		7454289124BC78AA0062A0D2 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289024BC78AA0062A0D2 /* DataType.swift */; };
 		7454289324BC9CA00062A0D2 /* NewGist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289224BC9CA00062A0D2 /* NewGist.swift */; };
@@ -41,8 +40,7 @@
 		7454289724BCF2AA0062A0D2 /* EncodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289624BCF2AA0062A0D2 /* EncodeService.swift */; };
 		7454289B24BD75B50062A0D2 /* FileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289A24BD75B50062A0D2 /* FileView.swift */; };
 		7454289D24BD75D00062A0D2 /* FileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7454289C24BD75D00062A0D2 /* FileView.xib */; };
-		745428A024BDD5010062A0D2 /* GistViewControllerV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289E24BDD5010062A0D2 /* GistViewControllerV2.swift */; };
-		745428A324BDD5220062A0D2 /* GistV2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745428A224BDD5220062A0D2 /* GistV2.storyboard */; };
+		745428A324BDD5220062A0D2 /* Gist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745428A224BDD5220062A0D2 /* Gist.storyboard */; };
 		78EEBDCD1609E0A493B7965B /* Pods_GistApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF7104C909CD01B055D7529 /* Pods_GistApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +56,6 @@
 		1211508F249E38E500B9EFB0 /* GistList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GistList.storyboard; sourceTree = "<group>"; };
 		1211509324A0D95B00B9EFB0 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		1219790624A1F686009A2365 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		1219791024A227DC009A2365 /* Gist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gist.storyboard; sourceTree = "<group>"; };
-		1219791224A22843009A2365 /* GistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistViewController.swift; sourceTree = "<group>"; };
 		128D1D492497E4F40066E58F /* GistApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GistApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		128D1D4C2497E4F40066E58F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		128D1D4E2497E4F40066E58F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +73,7 @@
 		7441797B24C1F3D0002D39A0 /* GistDeleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDeleteService.swift; sourceTree = "<group>"; };
 		7441797D24C207EA002D39A0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		7441797F24C2081F002D39A0 /* UIViewExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewExtension .swift"; sourceTree = "<group>"; };
+		7441798224C4C9AA002D39A0 /* GistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistViewController.swift; sourceTree = "<group>"; };
 		7454288E24BC6BB10062A0D2 /* GistFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistFileService.swift; sourceTree = "<group>"; };
 		7454289024BC78AA0062A0D2 /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
 		7454289224BC9CA00062A0D2 /* NewGist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGist.swift; sourceTree = "<group>"; };
@@ -84,8 +81,7 @@
 		7454289624BCF2AA0062A0D2 /* EncodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeService.swift; sourceTree = "<group>"; };
 		7454289A24BD75B50062A0D2 /* FileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileView.swift; sourceTree = "<group>"; };
 		7454289C24BD75D00062A0D2 /* FileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileView.xib; sourceTree = "<group>"; };
-		7454289E24BDD5010062A0D2 /* GistViewControllerV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistViewControllerV2.swift; sourceTree = "<group>"; };
-		745428A224BDD5220062A0D2 /* GistV2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GistV2.storyboard; sourceTree = "<group>"; };
+		745428A224BDD5220062A0D2 /* Gist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gist.storyboard; sourceTree = "<group>"; };
 		93B6A5BE2291BFD28B6C4324 /* Pods-GistApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistApp.release.xcconfig"; path = "Target Support Files/Pods-GistApp/Pods-GistApp.release.xcconfig"; sourceTree = "<group>"; };
 		BFF7104C909CD01B055D7529 /* Pods_GistApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GistApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -196,10 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				7454288D24BC67F00062A0D2 /* View */,
-				1219791024A227DC009A2365 /* Gist.storyboard */,
-				1219791224A22843009A2365 /* GistViewController.swift */,
-				745428A224BDD5220062A0D2 /* GistV2.storyboard */,
-				7454289E24BDD5010062A0D2 /* GistViewControllerV2.swift */,
+				745428A224BDD5220062A0D2 /* Gist.storyboard */,
+				7441798224C4C9AA002D39A0 /* GistViewController.swift */,
 			);
 			path = Gist;
 			sourceTree = "<group>";
@@ -339,9 +333,8 @@
 			files = (
 				7454289D24BD75D00062A0D2 /* FileView.xib in Resources */,
 				1211509624A1025E00B9EFB0 /* OAuth.storyboard in Resources */,
-				1219791124A227DC009A2365 /* Gist.storyboard in Resources */,
 				128D1D592497E4F60066E58F /* LaunchScreen.storyboard in Resources */,
-				745428A324BDD5220062A0D2 /* GistV2.storyboard in Resources */,
+				745428A324BDD5220062A0D2 /* Gist.storyboard in Resources */,
 				12115090249E38E500B9EFB0 /* GistList.storyboard in Resources */,
 				1211509424A0D95B00B9EFB0 /* CustomCell.xib in Resources */,
 				128D1D562497E4F60066E58F /* Assets.xcassets in Resources */,
@@ -397,8 +390,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7441798324C4C9AA002D39A0 /* GistViewController.swift in Sources */,
 				1211507F249BB6A800B9EFB0 /* NetworkService.swift in Sources */,
-				1219791324A22843009A2365 /* GistViewController.swift in Sources */,
 				7454288F24BC6BB10062A0D2 /* GistFileService.swift in Sources */,
 				1219790824A1F8F0009A2365 /* ImageDownloader.swift in Sources */,
 				12115081249BB6A800B9EFB0 /* NetworkServiceError.swift in Sources */,
@@ -409,7 +402,6 @@
 				7454289724BCF2AA0062A0D2 /* EncodeService.swift in Sources */,
 				1211507E249BB6A800B9EFB0 /* GistListCell.swift in Sources */,
 				7454289124BC78AA0062A0D2 /* DataType.swift in Sources */,
-				745428A024BDD5010062A0D2 /* GistViewControllerV2.swift in Sources */,
 				7441797924C1E901002D39A0 /* GistUpdateService.swift in Sources */,
 				128D1D512497E4F40066E58F /* OAuthViewController.swift in Sources */,
 				128D1D4D2497E4F40066E58F /* AppDelegate.swift in Sources */,

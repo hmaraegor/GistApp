@@ -9,7 +9,7 @@
 import UIKit
 
 class GistUpdateService {
-    private let networkService = NetworkService<Int>()
+    private let networkService = NetworkService()//<Int>()
     
     func putGist<T: Codable>(model: T, gistId: String?, completionHandler:
     @escaping (Int?, Error?) -> ()) {
@@ -26,7 +26,6 @@ class GistUpdateService {
             }
         }
         
-        //NetworkService().performHTTPRequest(decodingDataType: .string, url: url, completionHandler: completion)
         networkService.post(url: url, model: model, completion: completion)
     }
 }

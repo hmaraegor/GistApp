@@ -9,9 +9,9 @@
 import Foundation
 
 class GistDeleteService {
-    private let networkService = NetworkService<Int>()
+    private let networkService = NetworkService()//<Int>()
         
-    func getGists(gistId: String?, completionHandler:
+    func deleteGist(gistId: String?, completionHandler:
     @escaping (Int?, Error?) -> ()) {
         let gistUrl = "gists/" + gistId! + "?access_token=" + (StoredData.token ?? "")
         let url = Constants.API.GitHub.baseURL + gistUrl

@@ -8,33 +8,33 @@
 
 import Foundation
 
-class NetworkService<T: Codable> {
+class NetworkService {
     
-    typealias Completion = (Result<T, NetworkServiceError>) -> ()
+    typealias Completion<T: Codable> = (Result<T, NetworkServiceError>) -> ()
     private var decodingDataType: DataType?
     
-    func get(url: String, decodingDataType: DataType, _ completion: @escaping Completion) {
+    func get<T: Codable>(url: String, decodingDataType: DataType, _ completion: @escaping Completion<T>) {
         self.decodingDataType = decodingDataType
         performHTTPRequest(url: url, method: "GET", data: nil, params: nil, completion)
     }
     
-    func post<T: Codable>(url: String, model: T, /* params: [String: Any], */completion: @escaping Completion) {
+    func post<T: Codable>(url: String, model: T, /* params: [String: Any], */completion: @escaping Completion<Int>) {
         let (encodedData, error) = EncodeService().encodeData(model: model)
                 if error != nil { completion(.failure(.modelEncoding)) }
                 guard encodedData != nil else { return }
         performHTTPRequest(url: url, method: "POST", data: encodedData, params: nil/* params */, completion)
     }
     
-    func put(url: String, _ completion: @escaping Completion) {
+    func put<T: Codable>(url: String, _ completion: @escaping Completion<T>) {
         performHTTPRequest(url: url, method: "PUT", data: nil, params: nil, completion)
     }
     
-    func delete(url: String, _ completion: @escaping Completion) {
+    func delete<T: Codable>(url: String, _ completion: @escaping Completion<T>) {
         performHTTPRequest(url: url, method: "DELETE", data: nil, params: nil, completion)
     }
     
     // MARK: - Private
-    private func performHTTPRequest(url: String, method: String, data: Data?, params: [String: Any]?, _ completion: @escaping Completion) {
+    private func performHTTPRequest<T: Codable>(url: String, method: String, data: Data?, params: [String: Any]?, _ completion: @escaping Completion<T>) {
         
         guard let url = URL(string: url) else {
             completion(.failure(.badURL))
