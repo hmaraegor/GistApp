@@ -16,6 +16,7 @@ class GistViewController: UIViewController, FileViewDelegate {
     var gist: Gist?
     var currentView: FileView?
     var newFileView: FileView!
+    var gistUpdateService = GistUpdateService()
     
     @IBOutlet var indicatorView: UIActivityIndicatorView!
     
@@ -178,7 +179,7 @@ class GistViewController: UIViewController, FileViewDelegate {
     
     func postRequest(model: NewGist){
         
-        GistUpdateService().putGist(model: model, gistId: gist?.id) { (code, error) in
+        gistUpdateService.putGist(model: model, gistId: gist?.id) { (code, error) in
             if code != nil {
                 print(code)
             }

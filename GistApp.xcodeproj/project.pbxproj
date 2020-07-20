@@ -33,7 +33,6 @@
 		7441797E24C207EA002D39A0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441797D24C207EA002D39A0 /* StringExtension.swift */; };
 		7441798024C2081F002D39A0 /* UIViewExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441797F24C2081F002D39A0 /* UIViewExtension .swift */; };
 		7441798324C4C9AA002D39A0 /* GistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441798224C4C9AA002D39A0 /* GistViewController.swift */; };
-		7441798524C55C59002D39A0 /* GistCreateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441798424C55C59002D39A0 /* GistCreateService.swift */; };
 		7454288F24BC6BB10062A0D2 /* GistFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454288E24BC6BB10062A0D2 /* GistFileService.swift */; };
 		7454289124BC78AA0062A0D2 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289024BC78AA0062A0D2 /* DataType.swift */; };
 		7454289324BC9CA00062A0D2 /* NewGist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7454289224BC9CA00062A0D2 /* NewGist.swift */; };
@@ -75,7 +74,6 @@
 		7441797D24C207EA002D39A0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		7441797F24C2081F002D39A0 /* UIViewExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewExtension .swift"; sourceTree = "<group>"; };
 		7441798224C4C9AA002D39A0 /* GistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistViewController.swift; sourceTree = "<group>"; };
-		7441798424C55C59002D39A0 /* GistCreateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCreateService.swift; sourceTree = "<group>"; };
 		7454288E24BC6BB10062A0D2 /* GistFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistFileService.swift; sourceTree = "<group>"; };
 		7454289024BC78AA0062A0D2 /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
 		7454289224BC9CA00062A0D2 /* NewGist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGist.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 				7454288E24BC6BB10062A0D2 /* GistFileService.swift */,
 				7441797824C1E901002D39A0 /* GistUpdateService.swift */,
 				7441797B24C1F3D0002D39A0 /* GistDeleteService.swift */,
-				7441798424C55C59002D39A0 /* GistCreateService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -403,7 +400,6 @@
 				7409047624B30704008AAA9B /* GistService.swift in Sources */,
 				7441797724C07034002D39A0 /* IBExtension.swift in Sources */,
 				7454289724BCF2AA0062A0D2 /* EncodeService.swift in Sources */,
-				7441798524C55C59002D39A0 /* GistCreateService.swift in Sources */,
 				1211507E249BB6A800B9EFB0 /* GistListCell.swift in Sources */,
 				7454289124BC78AA0062A0D2 /* DataType.swift in Sources */,
 				7441797924C1E901002D39A0 /* GistUpdateService.swift in Sources */,

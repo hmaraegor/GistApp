@@ -11,6 +11,9 @@ import UIKit
 class GistListTVController: UITableViewController {
     
     var gistArray = [Gist]()
+    var gistUpdateService = GistUpdateService()
+    var gistService = GistService()
+    var gistDeleteService = GistDeleteService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +55,7 @@ class GistListTVController: UITableViewController {
     
     func postRequest(model: NewGist){
         
-        GistUpdateService().putGist(model: model, gistId: nil) { (code, error) in
+        gistUpdateService.putGist(model: model, gistId: nil) { (code, error) in
             if code != nil {
                 print(code)
                 DispatchQueue.main.async {
@@ -69,7 +72,7 @@ class GistListTVController: UITableViewController {
     }
     
     func fetchGistList() {
-        GistService().getGists() { (array, error) in
+        gistService.getGists() { (array, error) in
             if array != nil {
                 self.gistArray = array!
             }
@@ -130,7 +133,7 @@ class GistListTVController: UITableViewController {
             let gistId = gistArray[indexPath.row].id
             gistArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            GistDeleteService().deleteGist(gistId: gistId) { (code, error) in
+            gistDeleteService.deleteGist(gistId: gistId) { (code, error) in
                 if code != nil {
                     print(code)
                 }

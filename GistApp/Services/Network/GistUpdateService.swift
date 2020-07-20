@@ -14,7 +14,7 @@ class GistUpdateService {
     func putGist<T: Codable>(model: T, gistId: String?, completionHandler:
     @escaping (Int?, Error?) -> ()) {
         var id: String
-        if gistId != nil { id = "/" + gistId! }
+        if let gistId = gistId { id = "/" + gistId }
         else { id = "" }
         let gistUrl = "gists" + id + "?access_token=" + (StoredData.token ?? "")
         let url = Constants.API.GitHub.baseURL + gistUrl
