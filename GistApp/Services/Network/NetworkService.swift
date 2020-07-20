@@ -58,7 +58,7 @@ class NetworkService {
             guard let httpResponse = response as? HTTPURLResponse,
                 (200...299).contains(httpResponse.statusCode) else {
                     completion(.failure(.badResponse))
-                    print("Status code: ", (response as? HTTPURLResponse)!.statusCode)
+                    print("Status code: ", (response as? HTTPURLResponse)?.statusCode)
                     return
             }
             
