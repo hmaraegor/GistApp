@@ -37,19 +37,6 @@ struct NewGist: Codable {
     init(currentName: String){
         files = [currentName : UpdateFile()]
     }
-    
-    init(usePublic: Bool = true, useFilename: Bool = false) {
-        description = "default description"
-        if usePublic { isPublic = true }
-        files = ["default_name" : UpdateFile(useFilename: useFilename)]
-    }
-    
-    init(usePublic: Bool = true, useFilename: Bool = false, fileName: String = "default_name") {
-        description = "default description"
-        if usePublic { isPublic = true }
-        let currName = fileName 
-        files = [currName : UpdateFile(useFilename: useFilename, changeName: currName)]
-    }
 }
 
 struct UpdateFile: Codable {
@@ -57,7 +44,6 @@ struct UpdateFile: Codable {
     var filename: String?
     
     init() {
-        
     }
     
     init(content: String) {
@@ -67,10 +53,5 @@ struct UpdateFile: Codable {
     init(updateName: String, content: String) {
         self.content = content
         filename = updateName
-    }
-    
-    init(useFilename: Bool, changeName: String = "default_name"){
-        content = "default text"
-        if useFilename { filename = changeName }
     }
 }

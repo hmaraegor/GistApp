@@ -17,11 +17,55 @@ class GistListTVController: UITableViewController {
         
         let nib = UINib(nibName: "CustomCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.action(sender:)))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if StoredData.token == nil { presentOAuthVC() }
         fetchGistList()
+    }
+    
+    @objc func action(sender: UIBarButtonItem) {
+        let ac = UIAlertController(title: "Добавление нового Gist", message: "Введите название файла", preferredStyle: .alert)
+
+        let ok = UIAlertAction(title: "Ok", style: .default) { action in
+            self.create(fileName: ac.textFields?[0].text ?? "New gistfile", description: "New gist")
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        ac.addTextField {
+            textField in
+            
+        }
+        
+        ac.addAction(ok)
+        ac.addAction(cancel)
+        present(ac, animated: true, completion: nil)
+    }
+    
+    func create(fileName: String, description: String) {
+        let newGistFile = NewGist(isPublic: true, newName: fileName, description: description, content: "<content>")
+        
+        postRequest(model: newGistFile)
+    }
+    
+    func postRequest(model: NewGist){
+        
+        GistUpdateService().putGist(model: model, gistId: nil) { (code, error) in
+            if code != nil {
+                print(code)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            else if error != nil {
+                DispatchQueue.main.async {
+                    ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
+                }
+            }
+        }
+
     }
     
     func fetchGistList() {
@@ -81,11 +125,6 @@ class GistListTVController: UITableViewController {
         presentGistController(with: gistArray[indexPath.row])
     }
     
-    //Do I need it?
-//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let gistId = gistArray[indexPath.row].id
@@ -99,8 +138,6 @@ class GistListTVController: UITableViewController {
                     ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
                 }
             }
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
 }

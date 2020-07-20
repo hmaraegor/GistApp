@@ -50,6 +50,7 @@ class GistViewController: UIViewController, FileViewDelegate {
         newFileView.delegate = self
         newFileView.wrapButton.setTitle("ᐊ Create", for: .normal)
         newFileView.titleTextField.text = "New file"
+        newFileView.fileTextView.text = "Text"
         newFileView.titleTextField.textColor = .gray
         newFileView.deleteButton.isHidden = true
         
@@ -118,7 +119,7 @@ class GistViewController: UIViewController, FileViewDelegate {
         let newGistFile = NewGist(isPublic: true, newName: fileName, description: description, content: content)
         
         let gistUrl = "gists?access_token=" + (StoredData.token ?? "")
-        postRequest(model: newGistFile, gistUrl: gistUrl)
+        postRequest(model: newGistFile)
     }
     
     func delete(fileView: FileView) {
@@ -140,7 +141,7 @@ class GistViewController: UIViewController, FileViewDelegate {
         let gistId = gist?.id
         
         let gistUrl = "gists/" + gistId! + "?access_token=" + (StoredData.token ?? "")
-        postRequest(model: newGistFile, gistUrl: gistUrl)
+        postRequest(model: newGistFile)
     }
     
     func update(fileView: FileView) {
@@ -172,11 +173,10 @@ class GistViewController: UIViewController, FileViewDelegate {
         
         let gistId = gist?.id
         
-        let gistUrl = "gists/" + gistId! + "?access_token=" + (StoredData.token ?? "")
-        postRequest(model: newGistFile, gistUrl: gistUrl)
+        postRequest(model: newGistFile)
     }
     
-    func postRequest(model: NewGist, gistUrl: String){
+    func postRequest(model: NewGist){
         
         GistUpdateService().putGist(model: model, gistId: gist?.id) { (code, error) in
             if code != nil {

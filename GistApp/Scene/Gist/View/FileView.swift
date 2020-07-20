@@ -47,10 +47,6 @@ class FileView: UIView {
         fileNameView.clipsToBounds = true
         fileNameView.layer.cornerRadius = 10
         fileNameView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
-//        newFileView.clipsToBounds = true
-//        newFileView.layer.cornerRadius = 10
-//        newFileView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
     func returnCorner() {
