@@ -21,40 +21,40 @@ protocol FileViewDelegate {
 
 class FileView: UIView {
     
-    @IBOutlet var textViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private var textViewHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet var fileNameView: UIView!
+    @IBOutlet private var fileNameView: UIView!
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var fileTextView: UITextView!
-    @IBOutlet var bottomButtonsView: UIView!
+    @IBOutlet private var bottomButtonsView: UIView!
     
     @IBOutlet var wrapButton: UIButton!
     
-    @IBOutlet var saveButton: UIButton!
+    @IBOutlet private var saveButton: UIButton!
     
     @IBOutlet var deleteButton: UIButton!
     
     var delegate: FileViewDelegate? //GistViewController?
-    var isUnwrapped: Bool = false
+    private var isUnwrapped: Bool = false
     
-    @IBAction func titleStartEditing(_ sender: UITextField) {
+    @IBAction private func titleStartEditing(_ sender: UITextField) {
         delegate?.viewUnwraping(fileView: self)
         guard !isUnwrapped else { return }
             wrapButtonTapped(wrapButton)
     }
     
-    func setCorner() {
+    private func setCorner() {
         fileNameView.clipsToBounds = true
         fileNameView.layer.cornerRadius = 10
         fileNameView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
-    func returnCorner() {
+    private func returnCorner() {
         fileNameView.layer.cornerRadius = 10
         fileNameView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
-    @IBAction func wrapButtonTapped(_ sender: UIButton) {
+    @IBAction private func wrapButtonTapped(_ sender: UIButton) {
         fileTextView.isHidden = !fileTextView.isHidden
         bottomButtonsView.isHidden = !bottomButtonsView.isHidden
         isUnwrapped = !isUnwrapped
@@ -78,7 +78,7 @@ class FileView: UIView {
         
     }
     
-    func setAtrText(_ string: String, for button: UIButton, withSize: CGFloat) {
+    private func setAtrText(_ string: String, for button: UIButton, withSize: CGFloat) {
         let amountText = NSMutableAttributedString(string: string)
         amountText.setAttributes([.font: UIFont.systemFont(ofSize: withSize), .foregroundColor: UIColor.gray,
             .strokeColor: UIColor.black],
@@ -87,11 +87,11 @@ class FileView: UIView {
         button.titleLabel!.attributedText = amountText
     }
     
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
+    @IBAction private func saveButtonTapped(_ sender: UIButton) {
             delegate?.update(fileView: self)
     }
     
-    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+    @IBAction private func deleteButtonTapped(_ sender: UIButton) {
         delegate?.delete(fileView: self)
     }
     
@@ -105,13 +105,13 @@ class FileView: UIView {
         setTextViewHeight(screenHeight: screenHeight)
     }
 
-    func setTextViewHeight(screenHeight: CGFloat){
+    private func setTextViewHeight(screenHeight: CGFloat){
         let maxSizeForTextView = screenHeight - titleTextField.frame.height - bottomButtonsView.frame.height
         self.textViewHeightConstraint.constant = CGFloat(maxSizeForTextView * 0.8)
         
     }
     
-    func setBottomView() {
+    private func setBottomView() {
         bottomButtonsView.clipsToBounds = true
         bottomButtonsView.layer.cornerRadius = 10
         bottomButtonsView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]

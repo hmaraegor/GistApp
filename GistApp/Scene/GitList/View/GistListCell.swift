@@ -12,8 +12,8 @@ class GistListCell: UITableViewCell {
     
     @IBOutlet private var files: UILabel!
     @IBOutlet private var author: UILabel!
-    @IBOutlet weak var avatarImage: UIImageView!
-    @IBOutlet weak var date: UILabel!
+    @IBOutlet private weak var avatarImage: UIImageView!
+    @IBOutlet private weak var date: UILabel!
     
     func configure(with content: Gist) {
         files.text = "Gist files: " + getFileNames(from: content).joined(separator:", ")
@@ -31,7 +31,7 @@ class GistListCell: UITableViewCell {
         }
     }
     
-    func getDate(strDate: String) -> String {
+    private func getDate(strDate: String) -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -42,7 +42,7 @@ class GistListCell: UITableViewCell {
         return newDate
     }
     
-    func getFileNames(from content: Gist) -> [String] {
+    private func getFileNames(from content: Gist) -> [String] {
         return content.files.map { $0.filename }
     }
 }

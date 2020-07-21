@@ -10,10 +10,10 @@ import UIKit
 
 class GistListTVController: UITableViewController {
     
-    var gistArray = [Gist]()
-    var gistUpdateService = GistUpdateService()
-    var gistService = GistService()
-    var gistDeleteService = GistDeleteService()
+    private var gistArray = [Gist]()
+    private var gistUpdateService = GistUpdateService()
+    private var gistService = GistService()
+    private var gistDeleteService = GistDeleteService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +47,13 @@ class GistListTVController: UITableViewController {
         present(ac, animated: true, completion: nil)
     }
     
-    func create(fileName: String, description: String) {
+    private func create(fileName: String, description: String) {
         let newGistFile = NewGist(isPublic: true, newName: fileName, description: description, content: "<content>")
         
         postRequest(model: newGistFile)
     }
     
-    func postRequest(model: NewGist){
+    private func postRequest(model: NewGist){
         
         gistUpdateService.putGist(model: model, gistId: nil) { (code, error) in
             if code != nil {
@@ -71,7 +71,7 @@ class GistListTVController: UITableViewController {
 
     }
     
-    func fetchGistList() {
+    private func fetchGistList() {
         gistService.getGists() { (array, error) in
             if array != nil {
                 self.gistArray = array!
@@ -88,14 +88,14 @@ class GistListTVController: UITableViewController {
     }
     
     //MARK: Present methods
-    func presentOAuthVC() {
+    private func presentOAuthVC() {
         let storyboard = UIStoryboard(name: "OAuth", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "OAuthVC")
         self.present(vc, animated: true, completion: nil)
         //navigationController?.pushViewController(vc, animated: true)
     }
     
-    func presentGistController(with gist: Gist) {
+    private func presentGistController(with gist: Gist) {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Gist", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "GistVC")

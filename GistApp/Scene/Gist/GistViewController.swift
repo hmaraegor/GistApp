@@ -12,21 +12,21 @@ import UIKit
 
 class GistViewController: UIViewController, FileViewDelegate {
 
-    var fileViewsArray: [FileView] = []
+    private var fileViewsArray: [FileView] = []
     var gist: Gist?
-    var currentView: FileView?
-    var newFileView: FileView!
-    var gistUpdateService = GistUpdateService()
+    private var currentView: FileView?
+    private var newFileView: FileView!
+    private var gistUpdateService = GistUpdateService()
     
-    @IBOutlet var indicatorView: UIActivityIndicatorView!
+    @IBOutlet private var indicatorView: UIActivityIndicatorView!
     
-    @IBOutlet var indicatorLabel: UILabel!
+    @IBOutlet private var indicatorLabel: UILabel!
     
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
-    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet private var scrollView: UIScrollView!
     
-    @IBOutlet var stackView: UIStackView!
+    @IBOutlet private var stackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class GistViewController: UIViewController, FileViewDelegate {
         
     }
 
-    func initFileViews() {
+    private func initFileViews() {
         for file in gist!.files {
             let view = FileView.instanceFromNib()
             view.initView(title: file.filename, screenHeight: UIScreen.main.bounds.height)
@@ -60,7 +60,7 @@ class GistViewController: UIViewController, FileViewDelegate {
         
     }
     
-    func getFile(url: String?, fileView: FileView) {
+    private func getFile(url: String?, fileView: FileView) {
         guard let fileUrl = url else { return }
         
         GistFileService().getGistFiles(url: fileUrl) { (fileText, error) in
@@ -177,7 +177,7 @@ class GistViewController: UIViewController, FileViewDelegate {
         postRequest(model: newGistFile)
     }
     
-    func postRequest(model: NewGist){
+    private func postRequest(model: NewGist){
         
         gistUpdateService.putGist(model: model, gistId: gist?.id) { (code, error) in
             if code != nil {
