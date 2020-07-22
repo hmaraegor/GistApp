@@ -13,7 +13,7 @@
 import UIKit
 import OAuthSwift
 
-class ViewController: UIViewController {
+class OAuthViewController: UIViewController {
 
     private var oauthswift: OAuth2Swift?
     
@@ -24,9 +24,9 @@ class ViewController: UIViewController {
         OAuthService().getToken(oauthObj: oauthswift) { result in
             switch result {
             case .success(let responseToken):
-                print()
-                //StoredData.token = responseToken
-                //print(StoredData.token)
+                StoredData.token = responseToken
+                self.dismiss(animated: true, completion: nil)
+                print("OAuthVC StoredData.token: ", StoredData.token)
             case .failure(let error):
                 print(error)
             }
@@ -36,10 +36,9 @@ class ViewController: UIViewController {
         
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .white
     }
 
 
