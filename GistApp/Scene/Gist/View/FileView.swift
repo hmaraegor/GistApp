@@ -30,9 +30,10 @@ class FileView: UIView {
     
     @IBOutlet var wrapButton: UIButton!
     
-    @IBOutlet private var saveButton: UIButton!
+    @IBOutlet var saveButton: UIButton!
     
     @IBOutlet var deleteButton: UIButton!
+    
     
     var delegate: FileViewDelegate? //GistViewController?
     private var isUnwrapped: Bool = false
@@ -58,20 +59,20 @@ class FileView: UIView {
         fileTextView.isHidden = !fileTextView.isHidden
         bottomButtonsView.isHidden = !bottomButtonsView.isHidden
         isUnwrapped = !isUnwrapped
-        if sender.titleLabel?.text == "ᐁ Close" && (delegate?.isNewFileView(self))! {
-            setAtrText("ᐊ Create", for: sender, withSize: 16)
+        if sender.titleLabel?.text == LocString.Gist.closeᐁ  && (delegate?.isNewFileView(self))! {
+            setAtrText(LocString.Gist.createᐊ, for: sender, withSize: 15)
             returnCorner()
             delegate?.showViews()
         }
-        else if sender.titleLabel?.text == "ᐊ Edit" || sender.titleLabel?.text == "ᐊ Create" {
+        else if sender.titleLabel?.text == LocString.Gist.editᐊ || sender.titleLabel?.text == LocString.Gist.createᐊ {
             //sender.setTitle("ᐁ Close", for: .normal)
-            setAtrText("ᐁ Close", for: sender, withSize: 16)
+            setAtrText(LocString.Gist.closeᐁ, for: sender, withSize: 15)
             setCorner()
             delegate?.hideViews(apartFrom: self)
         }
-        else if sender.titleLabel?.text == "ᐁ Close" {
+        else if sender.titleLabel?.text == LocString.Gist.closeᐁ {
             //sender.setTitle("ᐊ Edit", for: .normal)
-            setAtrText("ᐊ Edit", for: sender, withSize: 16)
+            setAtrText(LocString.Gist.editᐊ, for: sender, withSize: 15)
             returnCorner()
             delegate?.showViews()
         }
@@ -120,11 +121,14 @@ class FileView: UIView {
     override func awakeFromNib() {
         fileTextView.isHidden = true
         bottomButtonsView.isHidden = true
-        setAtrText("ᐊ Edit", for: wrapButton, withSize: 16)
+        setAtrText(LocString.Gist.editᐊ, for: wrapButton, withSize: 15)
         
         fileTextView.addLeftBorder(with: "#2F2E2B".hexToUIColor(alpha: 0.1), andWidth: 2)
         fileTextView.addRightBorder(with: "#2F2E2B".hexToUIColor(alpha: 0.1), andWidth: 2)
         setBottomView()
+        
+        saveButton.setTitle(LocString.Gist.save, for: .normal)
+        deleteButton.setTitle(LocString.Gist.delete, for: .normal)
     }
     
     

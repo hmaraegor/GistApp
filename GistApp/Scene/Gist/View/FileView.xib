@@ -20,20 +20,23 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="hEE-ZH-pUh" userLabel="File Name Text Field">
-                                    <rect key="frame" x="20" y="8" width="284" height="34"/>
+                                    <rect key="frame" x="10" y="8" width="200" height="34"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="200" id="Rf2-4s-j2l"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     <connections>
                                         <action selector="titleStartEditing:" destination="fmc-Tb-hRb" eventType="editingDidBegin" id="FAg-Xb-AeE"/>
                                     </connections>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zs-xY-Nxq" userLabel="Unwrap Button">
-                                    <rect key="frame" x="324" y="10" width="70" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zs-xY-Nxq" userLabel="Unwrap Button">
+                                    <rect key="frame" x="324" y="10" width="80" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="9g9-9b-NCI"/>
-                                        <constraint firstAttribute="width" constant="70" id="Yls-ld-rkm"/>
+                                        <constraint firstAttribute="width" priority="999" constant="80" id="Yls-ld-rkm"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <state key="normal" title="ᐊ Edit"/>
                                     <connections>
                                         <action selector="wrapButtonTapped:" destination="fmc-Tb-hRb" eventType="touchUpInside" id="N8h-X9-kuS"/>
@@ -42,11 +45,10 @@
                             </subviews>
                             <color key="backgroundColor" red="0.18431372549019609" green="0.1803921568627451" blue="0.16862745098039217" alpha="0.1023116438" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstItem="hEE-ZH-pUh" firstAttribute="leading" secondItem="8ND-rS-KaN" secondAttribute="leading" constant="20" id="PXe-Qf-Qud"/>
+                                <constraint firstItem="hEE-ZH-pUh" firstAttribute="leading" secondItem="8ND-rS-KaN" secondAttribute="leading" constant="10" id="PXe-Qf-Qud"/>
                                 <constraint firstItem="8Zs-xY-Nxq" firstAttribute="centerY" secondItem="8ND-rS-KaN" secondAttribute="centerY" id="QQM-N1-1xu"/>
                                 <constraint firstAttribute="height" constant="50" id="Qgh-GN-Ovs"/>
-                                <constraint firstAttribute="trailing" secondItem="8Zs-xY-Nxq" secondAttribute="trailing" constant="20" id="QkG-zW-HiS"/>
-                                <constraint firstItem="8Zs-xY-Nxq" firstAttribute="leading" secondItem="hEE-ZH-pUh" secondAttribute="trailing" constant="20" id="f9i-zh-waZ"/>
+                                <constraint firstAttribute="trailing" secondItem="8Zs-xY-Nxq" secondAttribute="trailing" constant="10" id="QkG-zW-HiS"/>
                                 <constraint firstItem="hEE-ZH-pUh" firstAttribute="centerY" secondItem="8ND-rS-KaN" secondAttribute="centerY" id="ugc-t0-XcO"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -69,11 +71,11 @@
                             <rect key="frame" x="0.0" y="355" width="414" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyS-tX-a8h">
-                                    <rect key="frame" x="20" y="7" width="80" height="36"/>
+                                    <rect key="frame" x="20" y="8" width="90" height="34"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="80" id="rPt-nj-1vY"/>
+                                        <constraint firstAttribute="width" constant="90" id="rPt-nj-1vY"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" title="Delete"/>
                                     <connections>
@@ -81,11 +83,11 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2g-pB-w5s">
-                                    <rect key="frame" x="324" y="7" width="70" height="36"/>
+                                    <rect key="frame" x="304" y="8" width="90" height="34"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="70" id="jHQ-aS-H3U"/>
+                                        <constraint firstAttribute="width" constant="90" id="jHQ-aS-H3U"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <state key="normal" title="Save"/>
                                     <connections>
                                         <action selector="saveButtonTapped:" destination="fmc-Tb-hRb" eventType="touchUpInside" id="eKS-3Z-DdR"/>
@@ -125,7 +127,7 @@
             <viewLayoutGuide key="safeArea" id="o7W-Fb-aTg"/>
             <connections>
                 <outlet property="bottomButtonsView" destination="UuP-e8-l8K" id="eVJ-GH-NaG"/>
-                <outlet property="deleteButton" destination="gyS-tX-a8h" id="WI3-8M-Mg1"/>
+                <outlet property="deleteButton" destination="gyS-tX-a8h" id="B8O-N3-Umj"/>
                 <outlet property="fileNameView" destination="8ND-rS-KaN" id="wFU-o5-ja2"/>
                 <outlet property="fileTextView" destination="fHN-g4-62X" id="6Z1-M2-fbS"/>
                 <outlet property="saveButton" destination="Z2g-pB-w5s" id="R2E-QG-TJo"/>

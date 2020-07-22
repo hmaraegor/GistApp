@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  GistApp
+
+  Created by Egor on 22/07/2020.
+  Copyright © 2020 Egor Khmara. All rights reserved.
+*/
+
+"ᐁ Close" = "ᐁ Закрыть";
+"ᐊ Create" = "ᐊ Создать";
+"ᐊ Edit" = "ᐊ Редакт.";
+"New file" = "Новый файл";
+"Text" = "Текст";
+"Saving" = "Сохранение";
+"Deleting" = "Удаление";
+"default name" = "<имя>";
+"default text" = "<текст>";
+"Gist files: " = "Gist файлы: ";
+"Author: " = "Автор: ";
+"Date: " = "Дата: ";
+"Adding new Gist" = "Добавление нового Gist";
+"Enter file name" = "Введите название файла";
+"Ok" = "Ок";
+"Cancel" = "Закрыть";
+"New gistfile" = "Новый файл gist";
+"New gist" = "Новый gist";
+"<content>" = "<контент>";
+"Save" = "Сохранить";
+"Delete" = "Удалить";
