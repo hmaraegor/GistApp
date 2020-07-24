@@ -16,9 +16,9 @@ class GistListCell: UITableViewCell {
     @IBOutlet private weak var date: UILabel!
     
     func configure(with content: Gist) {
-        files.text = "Gist files: " + getFileNames(from: content).joined(separator:", ")
-        author.text = "Author: " + content.owner.login
-        date.text = "Date: " + getDate(strDate: content.createdAt)
+        files.text = LocString.Cell.gistFiles + getFileNames(from: content).joined(separator:", ")
+        author.text = LocString.Cell.author + content.owner.login
+        date.text = LocString.Cell.date + getDate(strDate: content.createdAt)
         
         avatarImage.layer.cornerRadius = avatarImage.frame.size.height / 5
         guard let stringURL = content.owner.avatarUrl  else { return }

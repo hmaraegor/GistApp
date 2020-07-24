@@ -49,9 +49,9 @@ class GistViewController: UIViewController, FileViewDelegate {
         newFileView.initView(title: "", screenHeight: UIScreen.main.bounds.height)
         fileViewsArray.append(newFileView)
         newFileView.delegate = self
-        newFileView.wrapButton.setTitle("ᐊ Create", for: .normal)
-        newFileView.titleTextField.text = "New file"
-        newFileView.fileTextView.text = "Text"
+        newFileView.wrapButton.setTitle(LocString.Gist.createᐊ, for: .normal)
+        newFileView.titleTextField.text = LocString.Gist.newFile
+        newFileView.fileTextView.text = LocString.Gist.text
         newFileView.titleTextField.textColor = .gray
         newFileView.deleteButton.isHidden = true
         
@@ -112,10 +112,10 @@ class GistViewController: UIViewController, FileViewDelegate {
     func create(fileView: FileView) {
         indicatorView.isHidden = false
         activityIndicator.startAnimating()
-        indicatorLabel.text = "Saving"
+        indicatorLabel.text = LocString.Gist.saving
         
-        let fileName = fileView.titleTextField.text ?? "default name/"
-        let content = fileView.fileTextView.text ?? "default text/"
+        let fileName = fileView.titleTextField.text ?? LocString.Gist.defaultName
+        let content = fileView.fileTextView.text ?? LocString.Gist.defaultText
         let description = gist?.description
         let newGistFile = NewGist(isPublic: true, newName: fileName, description: description, content: content)
         
@@ -126,7 +126,7 @@ class GistViewController: UIViewController, FileViewDelegate {
     func delete(fileView: FileView) {
         indicatorView.isHidden = false
         activityIndicator.startAnimating()
-        indicatorLabel.text = "Deleting"
+        indicatorLabel.text = LocString.Gist.deleting
         
         var fileIndex: Int = 0
         var currentName = ""
@@ -148,10 +148,10 @@ class GistViewController: UIViewController, FileViewDelegate {
     func update(fileView: FileView) {
         indicatorView.isHidden = false
         activityIndicator.startAnimating()
-        indicatorLabel.text = "Saving"
+        indicatorLabel.text = LocString.Gist.saving
         
         var fileIndex: Int = 0
-        let updateFileName = fileView.titleTextField.text ?? "default name/"
+        let updateFileName = fileView.titleTextField.text ?? LocString.Gist.defaultName
         var currentName = ""
         
         for (index, view) in fileViewsArray.enumerated() {
@@ -168,7 +168,7 @@ class GistViewController: UIViewController, FileViewDelegate {
             currentName = ((gist?.files[fileIndex].filename)!)
         }
         
-        let content = fileView.fileTextView.text ?? "default text/"
+        let content = fileView.fileTextView.text ?? LocString.Gist.defaultText
         let description = gist?.description
         let newGistFile = NewGist(currentName: currentName, updateName: updateFileName, description: description, content: content)
         

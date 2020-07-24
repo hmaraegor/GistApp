@@ -30,13 +30,13 @@ class GistListTVController: UITableViewController {
     }
     
     @objc func action(sender: UIBarButtonItem) {
-        let ac = UIAlertController(title: "Добавление нового Gist", message: "Введите название файла", preferredStyle: .alert)
+        let ac = UIAlertController(title: LocString.GistList.addNewGist, message: LocString.GistList.enterFileName, preferredStyle: .alert)
 
-        let ok = UIAlertAction(title: "Ok", style: .default) { action in
-            self.create(fileName: ac.textFields?[0].text ?? "New gistfile", description: "New gist")
+        let ok = UIAlertAction(title: LocString.GistList.ok, style: .default) { action in
+            self.create(fileName: ac.textFields?[0].text ?? LocString.GistList.newGistFile, description: LocString.GistList.newGist)
         }
         
-        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let cancel = UIAlertAction(title: LocString.GistList.cancel, style: .default, handler: nil)
         ac.addTextField {
             textField in
             
@@ -48,7 +48,7 @@ class GistListTVController: UITableViewController {
     }
     
     private func create(fileName: String, description: String) {
-        let newGistFile = NewGist(isPublic: true, newName: fileName, description: description, content: "<content>")
+        let newGistFile = NewGist(isPublic: true, newName: fileName, description: description, content: LocString.GistList.content)
         
         postRequest(model: newGistFile)
     }
